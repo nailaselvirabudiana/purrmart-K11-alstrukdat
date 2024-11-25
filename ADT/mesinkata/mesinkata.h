@@ -68,6 +68,8 @@ char isOnWord(Word kata, char c);
 
 void STARTINPUT();
 
+void IgnoreRest();
+
 // Removed PrintWord prototype since we're using printWord consistently
 
 #endif
