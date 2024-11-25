@@ -1,0 +1,2 @@
+# main Runner
+gcc -o data main.c Feature/work.c Feature/wordl3.c Feature/tebak_angka.c ADT/random/random.c ADT/mesinkarakter/mesinkarakter.c ADT/mesinkata/mesinkata.c ADT/delay/delay.c Feature/login.c Feature/logout.c Feature/register.c ADT/userauth/userauth.c ADT/array/array.c ADT/queue/queue.c ADT/store/store.c ADT/barang/barang.c ADT/list_dinamis/list_dinamis.c

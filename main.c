@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "work.h"
-#include "wordl3.h"
-#include "tebak_angka.h"
-#include "login.h"
-#include "register.h"
-#include "logout.h"
-#include "../ADT/mesinkata/mesinkata.h"
-#include "../ADT/array/array.h"
-#include "../ADT/userauth/userauth.h"
-#include "../ADT/list_dinamis/list_dinamis.h"
-#include "../ADT/queue/queue.h"
-#include "../ADT/barang/barang.h"
-#include "../ADT/store/store.h"
+#include "Feature/work.h"
+#include "Feature/wordl3.h"
+#include "Feature/tebak_angka.h"
+#include "Feature/login.h"
+#include "Feature/register.h"
+#include "Feature/logout.h"
+#include "ADT/mesinkata/mesinkata.h"
+#include "ADT/array/array.h"
+#include "ADT/userauth/userauth.h"
+#include "ADT/list_dinamis/list_dinamis.h"
+#include "ADT/queue/queue.h"
+#include "ADT/barang/barang.h"
+#include "ADT/store/store.h"
 
 TabKata arrusers;
 TabKata arrpassword;
@@ -41,6 +41,11 @@ int main(){
     char Load[] = "LOAD";
     char Save[] = "SAVE";
     char Quit[] = "QUIT";
+    printf("=====[PURRMART]=====\n");
+    printf("    1. START\n");
+    printf("    2. LOAD\n");
+    printf("    3. QUIT\n");
+    printf("Ketik \"HELP\" for more information\n");
 
     printf(">> ");
     STARTWORD();
@@ -64,6 +69,12 @@ int main(){
             STARTWORD();
         }
     }
+    printf("=====[Welcome To PURRMART]=====\n");
+    printf("    1. REGISTER\n");
+    printf("    2. LOGIN\n");
+    printf("    3. LOGOUT\n");
+    printf("    4. QUIT\n");
+    printf("Ketik \"HELP\" for more information \n");
     printf(">> ");
     STARTWORD();
     while(Word2str(currentWord) != Quit){
@@ -74,6 +85,17 @@ int main(){
         }
         if(StringCompare(str2Word(Login), currentWord)){
             login();
+            printf("=====[PURRMART LOBBY]=====\n");
+            printf("    1. WORK\n");
+            printf("    2. WORK CHALLENGE\n");
+            printf("    3. STORE LIST\n");
+            printf("    4. STORE REQUEST\n");
+            printf("    5. STORE SUPPLY \n");
+            printf("    6. STORE REMOV\n");
+            printf("    7. STORE LOGOUT\n");
+            printf("    8. STORE SAVE\n");
+            printf("    9. QUIT\n");
+            printf("Ketik \"HELP\" for more information \n");
             printf("\n>> ");
             STARTWORD();
         }
@@ -90,6 +112,7 @@ int main(){
                 printf("=====[ Login Menu Help PURRMART]=====\n");
                 printf("    1. REGISTER -> Untuk melakukan pendaftaran akun baru\n");
                 printf("    2. LOGIN -> Untuk masuk ke dalam akun dan memulai sesi\n");
+                printf("    3. LOGOUT -> Untuk keluar dari akun yang sudah login\n");
                 printf("    3. QUIT -> Untuk keluar dari program\n");
                 printf(">> ");
                 STARTWORD();
@@ -109,6 +132,7 @@ int main(){
             }
         }
         if(isLoggedIn){
+
             if(StringCompare(str2Word(Register), currentWord)){
                 registerUser();
                 printf("\n>> ");
@@ -175,6 +199,10 @@ int main(){
                 } else if(StringCompare(str2Word(Quit), currentWord)){
                     return 0;
                 }
+            } else {
+                printf("Command Tidak tersedia, coba lagi\n");\
+                printf(">> ");
+                STARTWORD();
             }
             
         }else{
