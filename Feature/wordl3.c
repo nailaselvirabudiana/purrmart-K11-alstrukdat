@@ -6,7 +6,7 @@
 
 #define MAX_LENGTH 1000  // Definisi maks array
 
-void wordl3() {
+int wordl3() {
     // Kumpulan karakter yg dirandom
     const char *words[] = {
         "APPLE",
@@ -82,7 +82,8 @@ void wordl3() {
         }
         printf("\n");
         if (compareWord(str2Word(str), str2Word(kata))) {
-            printf("===================The string is correct. You get 100 bucks===============================\n");
+            printf("===================The string is correct. You get 500===============================\n");
+            return 500;
             break;
         }
 
@@ -96,5 +97,6 @@ void wordl3() {
         printf("The correct string is: %s\n", kata);
         printf("Uh-oh You lose, better luck next time!\n");
         printf("=====================================================================\n");
+        return 0;
     }
 }

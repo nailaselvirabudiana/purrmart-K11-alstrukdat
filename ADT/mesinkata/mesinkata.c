@@ -152,4 +152,9 @@ void STARTINPUT()
     STARTWORD(stdin);
 }
 
+void IgnoreRest() {
+    while (!EOP) {
+        ADVWORD();
+    }
+}
 // Removed duplicate PrintWord function since it's the same as printWord

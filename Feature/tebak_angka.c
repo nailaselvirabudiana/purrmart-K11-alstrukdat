@@ -3,7 +3,7 @@
 #include "../ADT/random/random.h"
 #include "../ADT/mesinkarakter/mesinkarakter.h"
 
-void tebak_angka(){
+int tebak_angka(){
     int x = Random();
     int i = 10;
     for(i; i>0; i--){
@@ -37,7 +37,9 @@ void tebak_angka(){
             printf("Tebakanmu Benar! ");
             int reward = i * 50;
             printf("+%d rupiah telah ditambahkan ke akun anda.", reward);
-            break;
-        }
+            return reward;
+        } 
     }
+    printf("Kesempatanmu habis! Angka yang benar adalah %d", x);
+    return 0;
 }
