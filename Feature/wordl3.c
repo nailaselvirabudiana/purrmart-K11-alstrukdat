@@ -82,7 +82,7 @@ void wordl3() {
         }
         printf("\n");
         if (compareWord(str2Word(str), str2Word(kata))) {
-            printf("===================The string is correct. You get 100 bucks===============================\n");
+            printf("===================The string is correct. You get 500===============================\n");
             break;
         }
 
