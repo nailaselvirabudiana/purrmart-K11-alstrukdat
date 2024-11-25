@@ -1,15 +1,13 @@
 #ifndef LOAD_H
 #define LOAD_H
 
-#include "barang.h"
-#include "user.h"
-#include "mesinkarakter.h"
-#include "mesinkata.h"
+#include "../ADT/barang/barang.h"
+#include "../ADT/mesinkarakter/mesinkarakter.h"
+#include "../ADT/mesinkata/mesinkata.h"
+#include "../ADT/list_dinamis/list_dinamis.h"
+#include "../ADT/list/list.h"
+#include "../ADT/queue/queue.h"
 
-void constructfilepath(char*filepath, char*basepath, char*filename);
-
-void printFileContents(FILE *file);
-
-void loadFile(char*filename);
+void loadFile(const char *filename, ArrayDin store, List money, List arrusers, List arrpassword);
 
 #endif

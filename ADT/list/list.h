@@ -6,6 +6,7 @@
 #define ADTList1
 
 #include "../boolean.h"
+#include "../../Feature/user.h"
 
 /* Kamus Umum */
 #define MaxEl 100
@@ -14,10 +15,10 @@
 
 /* Definisi elemen dan koleksi objek */
 #define IdxType int
-#define ElType int
+#define UserEltype User 
 
 typedef struct {
-	ElType A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
+	UserEltype A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
 } List;
 
 #define List(i) L.A(i)
@@ -41,12 +42,12 @@ boolean IsEmpty(List L);
 /* Mengirimkan true jika list L kosong, mengirimkan false jika tidak */
 
 /* *** Menghasilkan sebuah elemen *** */
-ElType Get(List L, IdxType i);
+UserEltype Get(List L, IdxType i);
 /* Prekondisi : list tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen list yang ke-i */
 
 /* *** Selektor SET : Mengubah nilai list dan elemen list *** */
-void Set(List *L, IdxType i, ElType v);
+void Set(List *L, IdxType i, UserEltype v);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 
@@ -77,20 +78,20 @@ boolean IsIdxEff (List L, IdxType i);
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
 /* ********** Operasi-operasi ********** */
-boolean Search(List L, ElType X);
+boolean Search(List L, UserEltype X);
 /* Prekondisi : X sembarang */
 /* Mengirimkan true jika terdapat elemen X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
-void InsertFirst(List *L, ElType X);
+void InsertFirst(List *L, UserEltype X);
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen pertama L. */
 
-void InsertAt(List *L, ElType X, IdxType i);
+void InsertAt(List *L, UserEltype X, IdxType i);
 /* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
 /* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
 
-void InsertLast(List *L, ElType X);
+void InsertLast(List *L, UserEltype X);
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen terakhir L. */
 
@@ -120,6 +121,6 @@ boolean IsEqual(List L1, List L2);
 
 
 /*masi GTW kepake ato ga*/
-// List markIncluded(List L, ElType X);
+// List markIncluded(List L, UserEltype X);
 /* Mengirimkan list baru yang merupakan salinan L dengan penambahan X jika ada di L */
 #endif

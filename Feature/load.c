@@ -2,45 +2,56 @@
 #include <stdlib.h>
 #include "load.h"
 
-// Untuk membentuk path file
-void constructFilePath(char*filepath, char*basepath, char*filename){
-    int i = 0;
-    while(basepath[i] != '\0'){
-        filepath[i] = basepath[i];
-        i++;
-    }
-    int j = 0;
-    while(filename[j] != '\0'){
-        filepath[i] = filename[j];
-        i++;
-        j++;
-    }
-    filepath[i] = '\0';
-}
-
-// Hanya untuk debugging
-void printFileContents(FILE *file) {
-    char ch;
-    while ((ch = fgetc(file)) != EOF) {
-        putchar(ch); // Menampilkan karakter ke layar
-    }
-}
-
-// Untuk membaca file
-void loadFile(char*filename){
-    char filepath[100];
-    constructFilePath(filepath, "./save/", filename);
-    ArrayDin store = MakeArrayDin();
-    ArrayDin user = MakeArrayDin();
-    STARTFILE(filepath);
-    if (currentFile != NULL){
+void loadFile(const char *filename, ArrayDin store, List money, List arrusers, List arrpassword){
+    store = MakeArrayDin();
+    BarangElType item;
+    MakeEmpty(&money); MakeEmpty(&arrusers); MakeEmpty(&arrpassword);
+    FILE *file = READFILE(filename);
+    if (file != NULL){
         printf("Save file berhasil dibaca. PURRMART berhasil dijalankan.\n");
-        printf("Isi file %s:\n", filename); // Untuk debug
-        printFileContents(currentFile); // Untuk debug
+        int Nitems;
+        ReadInt(file, &Nitems);
+        printf("Jumlah barang: %d\n", Nitems);
+        for (int i = 0; i < Nitems; i++){
+            int harga;
+            ReadInt(file, &harga);
+            item.price = harga;
+            printf("harga: %d\n", item.price);
+            char barang[100];
+            ReadWord(file, barang);
+            item.name = str2Word(barang);
+            printWord(item.name);
+            printf("\n");
+            InsertLast(&store, item);
+        }
+
+        int Nusers;
+        ReadInt(file, &Nusers);
+        printf("Jumlah pengguna: %d\n", Nusers);
+        for (int i = 0; i < Nusers; i++){
+            int uang;
+            ReadInt(file, &uang);
+            Word duit = int2Word(uang);
+            AddElmt(&money, duit);
+            printWord(duit);
+            printf("\n");
+            char usn[100];
+            ReadWord(file, usn);
+            Word username = str2Word(usn);
+            AddElmt(&arrusers, username);
+            printWord(username);
+            printf("\n");
+            char pw[100];
+            ReadWord(file, pw);
+            Word password = str2Word(pw);
+            AddElmt(&arrpassword, password);
+            printWord(password);
+            printf("\n");
+        }
         END();
+        printf("%d\n", store.Neff);
     }
     else{
-        printf("Save file tidak ditemukan. PURRMART gagal dijalankan.\n");
+        printf("PURRMART gk bs jalan.");
     }
-
 }
