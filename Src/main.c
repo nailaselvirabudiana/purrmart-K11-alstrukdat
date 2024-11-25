@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "work.h"
-#include "wordl3.h"
-#include "tebak_angka.h"
-#include "auth.h"
-#include "user.h"
-#include "load.h"
-#include "save.h"
-#include "../ADT/mesinkata/mesinkata.h"
-#include "../ADT/list/list.h"
-#include "../ADT/list_dinamis/list_dinamis.h"
-#include "../ADT/queue/queue.h"
-#include "../ADT/barang/barang.h"
-#include "../ADT/store/store.h"
-#include "../Feature/quantumwordl3.h"
+#include "Feature/work.h"
+#include "Feature/wordl3.h"
+#include "Feature/tebak_angka.h"
+#include "Feature/auth.h"
+#include "Feature/user.h"
+#include "Feature/load.h"
+#include "Feature/save.h"
+#include "ADT/mesinkata/mesinkata.h"
+#include "ADT/list/list.h"
+#include "ADT/list_dinamis/list_dinamis.h"
+#include "ADT/queue/queue.h"
+#include "ADT/barang/barang.h"
+#include "ADT/store/store.h"
+#include "Feature/quantumwordl3.h"
 
 int main(){
     ArrayDin store = MakeArrayDin();
