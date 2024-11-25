@@ -7,8 +7,7 @@ void handle_store_request(Queue *request_queue, ArrayDin store) {
     BarangElType item;
     printf("Masukkan nama barang yang ingin diminta: ");
     STARTWORD();
-    // item.name = ReadLine();
-    item.name = currentWord;
+    item.name = ReadLine();
     store_request(request_queue, store, item);
     printf("\n");
 }
@@ -64,8 +63,8 @@ void handle_store_remove(ArrayDin *store) {
     printf("Masukkan nama barang yang ingin dihapus dari toko: ");
     BarangElType item;
     STARTWORD();
-    // item.name = ReadLine();
-    item.name = currentWord;
+    item.name = ReadLine();
+    // item.name = currentWord;
     store_remove(store, item.name);
     printf("\n");
 }

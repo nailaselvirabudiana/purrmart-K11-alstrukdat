@@ -48,3 +48,11 @@ int panjangKarakter(char s[]) {
     s[i] = '\0'; // Null-terminate the string
     return i; // Return the length of the string
 }
+
+FILE* READFILE(const char *filename) {
+    return fopen(filename, "r");
+}
+
+FILE* WRITEFILE(const char *filename) {
+    return fopen(filename, "w");
+}

@@ -68,8 +68,16 @@ char isOnWord(Word kata, char c);
 
 void STARTINPUT();
 
-void IgnoreRest();
+void ReadInt(FILE *file, int *angka);
 
+void ReadWord(FILE *file, char *str);
+
+void ReadMultiple(FILE *file, char *str);
+
+void IgnoreRest();
 // Removed PrintWord prototype since we're using printWord consistently
+Word ConcatWord(Word K1, Word K2);
+
+Word ReadLine();
 
 #endif

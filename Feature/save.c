@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include "list_dinamis.h"
-#include "mesinkata.h"
-#include "array.h"
-#include "user.h"
+#include "../ADT/list/list.h"
+#include "../ADT/mesinkata/mesinkata.h"
 #include "save.h"
 
 // Fungsi untuk menulis
-void writeToFile(FILE *file, ArrayDin *store, TabKata *arrusers, TabKata *arrpassword) {
+void writeToFile(FILE *file, ArrayDin *store, List *user) {
     if (file != NULL) {
         // Menulis jumlah barang
         fprintf(file, "%d\n", store->Neff);
@@ -16,29 +14,28 @@ void writeToFile(FILE *file, ArrayDin *store, TabKata *arrusers, TabKata *arrpas
         }
 
         // Menulis jumlah pengguna
-        fprintf(file, "%d\n", arrusers->Neff);
-        for (int i = 0; i < arrusers->Neff; i++) {
+        fprintf(file, "%d\n", user->Neff);
+        for (int i = 0; i < user->Neff; i++) {
             // Menulis username dan password
-            fprintf(file, "%s %s\n", Word2str(arrusers->TI[i]), Word2str(arrpassword->TI[i]));
+            fprintf(file, "%d %s ", user->A[i].uang, user->A[i].nama);
+            fprintf(file, "%s\n", user->A[i].password);
         }
 
-        printf("Data berhasil disimpan ke file.\n");
-        fclose(file);  // Menutup file setelah menulis
+        printf("Savefile berhasil disimpan.\n");
+        END();  // Menutup file setelah menulis
     } else {
-        printf("File gagal disave.\n");
+        printf("File gagal disimpan.\n");
     }
 }
 
 // Menyimpan
-void saveFile(char *filename, ArrayDin *store, TabKata *arrusers, TabKata *arrpassword) {
-    char filepath[100];
-    constructFilePath(filepath, "./save/", filename);  // Menyusun path file
-    WRITEFILE(filepath); // Membuka file mode write
-    if (currentFile != NULL) {
-        writeToFile(currentFile, store, arrusers, arrpassword);  // Menulis data ke file
+void saveFile(const char *filename, ArrayDin *store, List *user) {
+    FILE *file = WRITEFILE(filename);
+    if (file != NULL) {
+        writeToFile(file, store, user);  // Menulis data ke file
     } else {
         printf("Gagal membuka file untuk disimpan.\n");
     }
 
-    END();  // Jangan lupa menutup file setelah selesai
+    END();  // Jangan lupa menutup file setelah selesai :D
 }

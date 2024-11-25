@@ -152,9 +152,64 @@ void STARTINPUT()
     STARTWORD(stdin);
 }
 
+void ReadInt(FILE *file, int *angka) {
+    fscanf(file, "%d", angka);
+}
+
+void ReadWord(FILE *file, char *str) {
+    fscanf(file, "%s", str);
+}
+
+void ReadMultiple(FILE *file, char *str) {
+    fscanf(file, "%[^\n]", str);
+}
+
 void IgnoreRest() {
     while (!EOP) {
         ADVWORD();
     }
+}
+
+Word ConcatWord(Word K1, Word K2)
+{
+    Word K3 = K1;
+	int i, j = 0;
+	int l = K1.Length + K2.Length;
+	for (i = K1.Length; i < l; i++) {
+		K3.TabWord[i] = K2.TabWord[j];
+		K3.Length++;
+		j++;
+	}
+	return K3;
+}
+
+Word ReadLine() {
+    Word result;
+    result.Length = 0;
+    
+    if (!EndWord) {
+        for (int i = 0; i < currentWord.Length; i++) {
+            result.TabWord[result.Length++] = currentWord.TabWord[i];
+        }
+    }
+
+    while (!EOP && currentChar != '\n') {
+
+        if (result.Length < NMax) {
+            result.TabWord[result.Length++] = BLANK;
+        }
+        
+        ADVWORD();
+        
+        if (!EndWord) {
+            for (int i = 0; i < currentWord.Length; i++) {
+                if (result.Length < NMax) {
+                    result.TabWord[result.Length++] = currentWord.TabWord[i];
+                }
+            }
+        }
+    }
+    
+    return result;
 }
 // Removed duplicate PrintWord function since it's the same as printWord

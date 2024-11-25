@@ -17,5 +17,7 @@ void ADV();
 char GetCC();
 boolean IsEOP();
 int panjangKarakter(char s[]);
+FILE* READFILE(const char *filename);
+FILE* WRITEFILE(const char *filename);
 
-#endif
+#endif 

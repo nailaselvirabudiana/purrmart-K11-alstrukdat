@@ -1,15 +1,16 @@
 #ifndef SAVE_H
 #define SAVE_H
 
-#include "store.h"
-#include "queue.h"
+#include "../ADT/store/store.h"
+#include "../ADT/queue/queue.h"
 #include "load.h"
-#include "array.h"
+#include "../ADT/list/list.h"
+#include "user.h"
 
 // Fungsi untuk menulis data ke dalam file
-void writeToFile(FILE *file, ArrayDin *store, TabKata *arrusers, TabKata *arrpassword);
+void writeToFile(FILE *file, ArrayDin *store, List *user);
 
 // Menyimpan file
-void saveFile(char *filename, ArrayDin *store, TabKata *arrusers, TabKata *arrpassword);
+void saveFile(const char *filename, ArrayDin *store, List *user);
 
 #endif

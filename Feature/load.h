@@ -7,7 +7,8 @@
 #include "../ADT/list_dinamis/list_dinamis.h"
 #include "../ADT/list/list.h"
 #include "../ADT/queue/queue.h"
+#include "user.h"
 
-void loadFile(const char *filename, ArrayDin store, List money, List arrusers, List arrpassword);
+void loadFile(const char *filename, ArrayDin *store, List *user);
 
 #endif

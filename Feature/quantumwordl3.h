@@ -8,6 +8,6 @@
 #include "../ADT/random/random.h"
 #include "../ADT/delay/delay.h"
 
-boolean QuantumWordle();
+ int QuantumWordle();
 
 #endif
