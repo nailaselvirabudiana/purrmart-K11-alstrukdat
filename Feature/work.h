@@ -1,6 +1,6 @@
 #ifndef WORK_H
 #define WORK_H
 
-void work();
+int work();
 
 #endif

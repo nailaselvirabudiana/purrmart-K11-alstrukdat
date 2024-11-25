@@ -5,7 +5,7 @@
 #include "../ADT/mesinkata/mesinkata.h"
 #include "../ADT/delay/delay.h"
 
-void work(){
+int work(){
     printf("Daftar Pekerjaan:\n");
     printf("    1. Evil Lab Assistant (Pendapatan=100, durasi=14s)\n");
     printf("    2. OWCA Hiring Manager (Pendapatan=4200, durasi=21s)\n");
@@ -61,26 +61,31 @@ void work(){
         printf("Anda sedang bekerja sebagai Evil Lab Assistant... harap tunggu.\n");
         wait_for_seconds(14);
         printf("Pekerjaan selesai, +100 rupiah telah ditambahkan ke akun anda.");
+        return 100;
         break;    
     case 2:
         printf("Anda sedang bekerja sebagai OWCA Hiring Manager... harap tunggu.\n");
         wait_for_seconds(21);
         printf("Pekerjaan selesai, +4200 rupiah telah ditambahkan ke akun anda.");
+        return 4200;
         break;    
     case 3:
         printf("Anda sedang bekerja sebagai Cikapundunginator Caretaker... harap tunggu.\n");
         wait_for_seconds(30);
         printf("Pekerjaan selesai, +7000 rupiah telah ditambahkan ke akun anda.");
+        return 7000;
         break;    
     case 4:
         printf("Anda sedang bekerja sebagai Mewing Specialist... harap tunggu.\n");
         wait_for_seconds(22);
         printf("Pekerjaan selesai, +10000 rupiah telah ditambahkan ke akun anda.");
+        return 10000;
         break;    
     case 5:
         printf("Anda sedang bekerja sebagai Inator Connoisseur... harap tunggu.\n");
         wait_for_seconds(15);
         printf("Pekerjaan selesai, +997 rupiah telah ditambahkan ke akun anda.");
+        return 997;
         break;    
     }
 }

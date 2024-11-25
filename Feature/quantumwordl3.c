@@ -8,7 +8,7 @@
 // gcc ADT/mesinkarakter/mesinkarakter.c ADT/mesinkata/mesinkata.c ADT/random/random.c quantumwordle.c ADT/delay/delay.c -o tes
 #define MAX_LENGTH 1000  // Definisi maks array
 
-void QuantumWordle() {
+int QuantumWordle() {
     // Kumpulan karakter yg dirandom
     const char *words[] = {
         "APPLE",
@@ -204,8 +204,10 @@ void QuantumWordle() {
     }
     if (compareWord(str1, str2Word(kata1)) && compareWord(str2, str2Word(kata2)) && compareWord(str3, str2Word(kata3)) && compareWord(str4, str2Word(kata4)) ) {
         printf("YOU'RE SUCH A MASTER. TAKE ALL THE MONEY\n");
+        return 1000;
     } else {
         printf("You lose the game!! Try again, if you can.\n");
+        return 0;
     }
 
 
