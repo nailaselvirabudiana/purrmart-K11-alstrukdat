@@ -13,6 +13,7 @@
 #include "ADT/queue/queue.h"
 #include "ADT/barang/barang.h"
 #include "ADT/store/store.h"
+#include "Feature/quantumwordl3.h"
 
 TabKata arrusers;
 TabKata arrpassword;
@@ -32,6 +33,7 @@ int main(){
     char Tebak[] = "Tebak";
     char Angka[] = "Angka"; 
     char Wordl3[] = "WORDL399";
+    char quant[] = "QuantumWordl3";
     char Store[] = "STORE";
     char List[] = "LIST";
     char Request[] = "REQUEST";
@@ -85,17 +87,20 @@ int main(){
         }
         if(StringCompare(str2Word(Login), currentWord)){
             login();
-            printf("=====[PURRMART LOBBY]=====\n");
-            printf("    1. WORK\n");
-            printf("    2. WORK CHALLENGE\n");
-            printf("    3. STORE LIST\n");
-            printf("    4. STORE REQUEST\n");
-            printf("    5. STORE SUPPLY \n");
-            printf("    6. STORE REMOV\n");
-            printf("    7. STORE LOGOUT\n");
-            printf("    8. STORE SAVE\n");
-            printf("    9. QUIT\n");
-            printf("Ketik \"HELP\" for more information \n");
+            if(isLoggedIn){
+                printf("=====[PURRMART LOBBY]=====\n");
+                printf("    1. WORK\n");
+                printf("    2. WORK CHALLENGE\n");
+                printf("    3. STORE LIST\n");
+                printf("    4. STORE REQUEST\n");
+                printf("    5. STORE SUPPLY \n");
+                printf("    6. STORE REMOV\n");
+                printf("    7. STORE LOGOUT\n");
+                printf("    8. STORE SAVE\n");
+                printf("    9. QUIT\n");
+                printf("Ketik \"HELP\" for more information \n");
+            }
+            // isLoggedIn =true;
             printf("\n>> ");
             STARTWORD();
         }
@@ -132,7 +137,6 @@ int main(){
             }
         }
         if(isLoggedIn){
-
             if(StringCompare(str2Word(Register), currentWord)){
                 registerUser();
                 printf("\n>> ");
@@ -159,6 +163,7 @@ int main(){
                         printf("Daftar challenge ayng tersedia:\n");
                         printf("1. Tebak Angka (biaya main=200)\n");
                         printf("2. WORDL399 (biaya main=500)\n");
+                        printf("3. QuantumWordl3 (biaya main = 1000)\n");
                         printf("\n");
                         printf("Masukkan challenge yang hendak dimainkan: ");
                         STARTWORD();
@@ -174,6 +179,12 @@ int main(){
                             wordl3();
                             printf("\n>> ");
                             STARTWORD();
+                        }
+                        if(StringCompare(str2Word(quant), currentWord)){
+                            QuantumWordle();
+                            printf("\n>> ");
+                            STARTWORD();
+                            
                         }
                     }
                 }

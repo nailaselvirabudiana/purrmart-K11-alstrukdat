@@ -8,8 +8,6 @@ extern TabKata arrusers;
 extern TabKata arrpassword;
 
 void registerUser() {
-    printf(">> REGISTER\n");
-
     printf("Username: ");
     STARTINPUT();
     Word username = currentWord;
