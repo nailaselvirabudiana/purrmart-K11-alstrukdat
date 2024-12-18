@@ -59,6 +59,7 @@
   "files.associations": {
     "*.embeddedhtml": "html",
     "stdlib.h": "c",
-    "random": "c"
+    "random": "c",
+    "tebak_angka.h": "c"
   }
 }

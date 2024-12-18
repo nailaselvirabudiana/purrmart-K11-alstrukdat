@@ -7,6 +7,8 @@
 #include "Feature/user.h"
 #include "Feature/load.h"
 #include "Feature/save.h"
+#include "Feature/wishlist.h"
+#include "ADT/linkedlist/linkedlist.h"
 #include "ADT/mesinkata/mesinkata.h"
 #include "ADT/list/list.h"
 #include "ADT/list_dinamis/list_dinamis.h"
@@ -20,6 +22,8 @@ int main(){
     Queue request_queue;
     List user = MakeListUser();
     CreateQueue(&request_queue);
+    Linkedlist wishlist;
+    
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";
