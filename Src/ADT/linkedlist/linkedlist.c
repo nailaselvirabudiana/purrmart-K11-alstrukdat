@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedlist.h"
-#include "mesinkata.h"
-#include "mesinkarakter.h"
+#include "../mesinkata/mesinkata.h"
+#include "../mesinkarakter/mesinkarakter.h"
 
 boolean isEmpty(Linkedlist L){
     return First(L) == Nil;

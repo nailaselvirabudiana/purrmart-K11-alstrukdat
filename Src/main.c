@@ -23,7 +23,7 @@ int main(){
     List user = MakeListUser();
     CreateQueue(&request_queue);
     Linkedlist wishlist;
-    
+    CreateEmpty(&wishlist);
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";
@@ -43,6 +43,16 @@ int main(){
     char Load[] = "LOAD";
     char Save[] = "SAVE";
     char Quit[] = "QUIT";
+    char Cart[] = "CART";
+    char Wishlist[] = "WISHLIST";
+    char Add[] = "ADD";
+    char Swap[]  = "SWAP";
+    char Clear[] = "CLEAR";
+    char Show[] = "SHOW";
+    char Pay[] = "PAY";
+    char History[] = "HISTORY";
+    char Profile[] = "PROFILE";
+
     printf("=====[PURRMART]=====\n");
     printf("    1. START\n");
     printf("    2. LOAD\n");
@@ -74,7 +84,6 @@ int main(){
                 file = Word2str(currentWord);
                 loadFile(file,&store,&user);
                 masuk = true;
-                // return 0;
                 break;
             }
             else {
@@ -100,18 +109,15 @@ int main(){
         else if (StringCompare(currentWord, str2Word(Login))){
             int a = 0;
             a += login(&user);
-            printf("%d", a);
             if (a == 1){
                 islogin = true;
             }
-        
         }
         else if (StringCompare(currentWord, str2Word(Quit))){
             break;
         }
         else {
             printf("Masukkan perintah yang valid\n");
-            // STARTWORD();
         }
     }        
 
@@ -125,14 +131,24 @@ int main(){
         printf("    5. STORE SUPPLY \n");
         printf("    6. STORE REMOV\n");
         printf("    7. STORE LOGOUT\n");
-        printf("    8. QUIT\n");
+        printf("    8. PROFILE\n");
+        printf("    9. CART ADD\n");
+        printf("    10. CART REMOVE\n");
+        printf("    11. CART SHOW\n");
+        printf("    12. CART PAY\n");
+        printf("    13. HISTORY\n");
+        printf("    14. WISHLIST ADD\n");
+        printf("    15. WISHLIST SWAP\n");
+        printf("    16. WISHLIST REMOVE\n");
+        printf("    17. WISHLIST CLEAR\n");
+        printf("    18. WISHLIST SHOW\n");
+        printf("    19. QUIT\n");
         printf("Ketik \"HELP\" for more information \n");
         printf(">> ");
         STARTWORD();
             if((StringCompare(str2Word(Work), currentWord))){
                 if(currentChar == '\n'){
                     user.A->uang += work();
-                    // printf("\n>> ");
                     
                 }else{
                     ADVWORD();
@@ -147,21 +163,27 @@ int main(){
                         if(StringCompare(str2Word(Tebak), currentWord)){
                             ADVWORD();
                             if(StringCompare(str2Word(Angka), currentWord)){
-                                user.A->uang += tebak_angka();
-                                // printf("\n>> ");
-                                
+                                if(user.A->uang < 200){
+                                    printf("Uang tidak cukup\n");
+                                }else{
+                                    user.A->uang += tebak_angka();
+                                }
                             }
                         }
                         if(StringCompare(str2Word(Wordl3), currentWord)){
-                            user.A->uang += wordl3();
-                            // printf("\n>> ");
+                            if(user.A->uang < 500){
+                                printf("Uang tidak cukup\n");
+                            }else{
+                                user.A->uang += wordl3();
+                            }
                             
                         }
                         if(StringCompare(str2Word(quant), currentWord)){
-                            user.A->uang += QuantumWordle();
-                            // printf("\n>> ");
-                            
-                            
+                            if(user.A->uang < 1000){
+                                printf("Uang tidak cukup\n");
+                            }else{
+                                user.A->uang += QuantumWordle();
+                            }
                         }
                     }
                 } 
@@ -169,23 +191,18 @@ int main(){
                 ADVWORD();
                 if (StringCompare(str2Word(List), currentWord)) {
                     store_list(store);
-                    // printf("\n>> ");
                     
                 } else if (StringCompare(str2Word(Request), currentWord)) {
                     handle_store_request(&request_queue, store);
-                    // printf("\n>> ");
                     
                 } else if (StringCompare(str2Word(Supply), currentWord)) {
                     handle_store_supply(&store, &request_queue);
-                    // printf("\n>> ");
                     
                 } else if (StringCompare(str2Word(Remove), currentWord)) {
                     handle_store_remove(&store);
-                    // printf("\n>> ");
                     
                 } else {
                     printf("Command Tidak tersedia, coba lagi\n");\
-                    // printf(">> ");
                     
                 }
         }else if (StringCompare(str2Word(Quit), currentWord)) {
@@ -197,6 +214,29 @@ int main(){
                 saveFile(filename, &store, &user );
             }
             return 0;
+        }else if(StringCompare(str2Word(Wishlist), currentWord)) {
+            ADVWORD();
+            if(StringCompare(str2Word(Add), currentWord)){
+                WishlistAdd(store, &wishlist);
+            }else if(StringCompare(str2Word(Swap), currentWord)){ //kalau ini salah harusnya di spacing
+                ADVWORD();
+                int swap1 = Word2int(currentWord);
+                ADVWORD();
+                int swap2 = Word2int(currentWord);
+                WishlistSwap(&wishlist, swap1, swap2);
+            }else if(StringCompare(str2Word(Remove), currentWord)){
+                if(currentChar == '\n'){
+                    WishlistRemove(&wishlist);
+                }else{
+                    ADVWORD();
+                    int iremove = Word2int(currentWord);
+                    WishlistRemovePos(&wishlist, iremove);
+                }
+            }else if(StringCompare(str2Word(Clear), currentWord)){
+                WishlistClear(&wishlist);
+            }else if(StringCompare(str2Word(Show), currentWord)){
+                WishlistShow(wishlist);
+            }
         }
         
         

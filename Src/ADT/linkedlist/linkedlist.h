@@ -1,8 +1,9 @@
 #ifndef Linkedlist_H
 #define Linkedlist_H
 
-#include "mesinkata.h"
-#include "boolean.h"
+#include "../mesinkata/mesinkata.h"
+#include "../mesinkarakter/mesinkarakter.h"
+#include "../boolean.h"
 
 #define Nil NULL
 

@@ -40,5 +40,6 @@ void DeleteLast(ArrayDin *array);
 void DeleteFirst(ArrayDin *array);
 void PrintArrayDin(ArrayDin array);
 IdxType SearchArrayDin(ArrayDin array, ArrayElType item);
+IdxType SearchNameArrayDin(ArrayDin array, Word item);
 
 #endif

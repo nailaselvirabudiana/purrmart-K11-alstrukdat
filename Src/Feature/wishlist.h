@@ -1,22 +1,22 @@
 #ifndef wishlist_h
 #define wishlist_h
 
-#include "mesinkata.h"
-#include "mesinkarakter.h"
-#include "linkedlist.h"
-#include "list_dinamis.h"
+#include "../ADT/mesinkata/mesinkata.h"
+#include "../ADT/mesinkarakter/mesinkarakter.h"
+#include "../ADT/linkedlist/linkedlist.h"
+#include "../ADT/list_dinamis/list_dinamis.h"
 
-void WishlistAdd(ArrayDin S, List *W);
+void WishlistAdd(ArrayDin S, Linkedlist *W);
 
-void WishlistSwap(List *W);
+void WishlistSwap(Linkedlist *W, int swap1, int swap2);
 
-void WishlistRemovePos(List *W);
+void WishlistRemovePos(Linkedlist *W, int iremove);
 
-void WishlistRemove(List *W);
+void WishlistRemove(Linkedlist *W);
 
-void WishlistClear(List *W);
+void WishlistClear(Linkedlist *W);
 
-void WishlistShow(List W);
+void WishlistShow(Linkedlist W);
 
 #endif
 

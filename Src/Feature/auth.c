@@ -37,9 +37,10 @@ void registerUser(List *listuser) {
     cpStr (newUser.nama, Word2str(username),NMax-1);
     cpStr (newUser.password, Word2str(password),NMax-1);
     newUser.uang = 0; // Default uang adalah 0
-
+    
     InsertLastUser(listuser, newUser); // Menambahkan user baru ke akhir list
-    printf("Akun dengan username '%s' telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", username);
+
+    printf("Akun dengan username '%s' telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", Word2str(username)); 
 }
 
 int login(List *listuser) {

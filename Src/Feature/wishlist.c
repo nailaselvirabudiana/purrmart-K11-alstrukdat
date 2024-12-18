@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "wishlist.h"
-#include "linkedlist.h"
-#include "list_dinamis.h"
-#include "mesinkata.h"
-#include "mesinkarakter.h"
+#include "../ADT/linkedlist/linkedlist.h"
+#include "../ADT/list_dinamis/list_dinamis.h"
+#include "../ADT/mesinkata/mesinkata.h"
+#include "../ADT/mesinkarakter/mesinkarakter.h"
 
-void WishlistAdd(ArrayDin S, List *W){
+void WishlistAdd(ArrayDin S, Linkedlist *W){
     printf("Masukkan nama barang : ");
     STARTWORD();
     Word add = ReadLine();
@@ -26,11 +26,7 @@ void WishlistAdd(ArrayDin S, List *W){
     }
 }
 
-void WishlistSwap(List *W){
-    STARTWORD();
-    int swap1 = Word2int(currentWord);
-    ADVWORD();
-    int swap2 = Word2int(currentWord);
+void WishlistSwap(Linkedlist *W, int swap1, int swap2){
     Address s1 = First(*W);
     Address s2 = First(*W);
     if(isEmpty(*W)){
@@ -94,9 +90,7 @@ void WishlistSwap(List *W){
     }
 }
 
-void WishlistRemovePos(List *W){
-    STARTWORD();
-    int iremove = Word2int(ReadLine());
+void WishlistRemovePos(Linkedlist *W, int iremove){
     Address A = First(*W);
     if(isEmpty(*W)){
         printf("Penghapusan barang wishlist gagal dilakukan, wishlist kosong!\n");
@@ -117,7 +111,7 @@ void WishlistRemovePos(List *W){
     return;
 }
 
-void WishlistRemove(List *W){
+void WishlistRemove(Linkedlist *W){
     printf("Masukkan nama barang yang ingin dihapus : ");
     STARTWORD();
     Word remove = ReadLine();
@@ -133,7 +127,7 @@ void WishlistRemove(List *W){
     }    
 }
 
-void WishlistClear(List *W){
+void WishlistClear(Linkedlist *W){
     printf("wishlist telah dikosongkan.\n");
     Address P = First(*W);
     Address temp;
@@ -145,7 +139,7 @@ void WishlistClear(List *W){
     First(*W) = Nil;
 }
 
-void WishlistShow(List W){
+void WishlistShow(Linkedlist W){
     if(isEmpty(W)){
         printf("Wishlist kamu kosong!\n");
     }else{
