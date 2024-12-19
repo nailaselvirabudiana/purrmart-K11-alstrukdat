@@ -1,5 +1,5 @@
-#include "../ADT/list/list.h"
-#include "../ADT/mesinkata/mesinkata.h"
+#include "list.h"
+#include "mesinkata.h"
 #include "user.h"
 
 extern boolean isLoggedIn;

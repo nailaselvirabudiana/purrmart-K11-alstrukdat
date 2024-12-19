@@ -237,6 +237,8 @@ int main(){
             }else if(StringCompare(str2Word(Show), currentWord)){
                 WishlistShow(wishlist);
             }
+        }else if(StringCompare(str2Word(Profile), currentWord)){
+            profile(user);
         }
         
         

@@ -60,6 +60,7 @@
     "*.embeddedhtml": "html",
     "stdlib.h": "c",
     "random": "c",
-    "tebak_angka.h": "c"
+    "tebak_angka.h": "c",
+    "mesinkata.h": "c"
   }
 }
