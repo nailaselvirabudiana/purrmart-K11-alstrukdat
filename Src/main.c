@@ -166,6 +166,7 @@ int main(){
                                 if(user.A->uang < 200){
                                     printf("Uang tidak cukup\n");
                                 }else{
+                                    user.A->uang -= 200;
                                     user.A->uang += tebak_angka();
                                 }
                             }
@@ -174,6 +175,7 @@ int main(){
                             if(user.A->uang < 500){
                                 printf("Uang tidak cukup\n");
                             }else{
+                                user.A->uang -= 500;
                                 user.A->uang += wordl3();
                             }
                             
@@ -182,6 +184,7 @@ int main(){
                             if(user.A->uang < 1000){
                                 printf("Uang tidak cukup\n");
                             }else{
+                                user.A->uang -= 1000;
                                 user.A->uang += QuantumWordle();
                             }
                         }
