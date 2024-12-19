@@ -22,7 +22,7 @@ typedef struct {
 #define Next(p) (p)->next
 #define First(L) ((L).First)
 
-boolean isEmpty(Linkedlist L);
+// boolean isEmpty(Linkedlist L);
 
 void CreateEmpty(Linkedlist *L);
 
@@ -36,40 +36,30 @@ void InsVFirst (Linkedlist *L, Infotype X);
 
 void InsVLast (Linkedlist *L, Infotype X);
 
-void DelVFirst (Linkedlist *L, Infotype *X);
+// void DelVFirst (Linkedlist *L, Infotype *X);
 
-void DelVLast (Linkedlist *L, Infotype *X);
+// void DelVLast (Linkedlist *L, Infotype *X);
 
-void InsFirst (Linkedlist *L, Address P);
+// void InsFirst (Linkedlist *L, Address P);
 
-void InsAfter (Linkedlist *L, Address P, Address Prec);
+// void InsAfter (Linkedlist *L, Address P, Address Prec);
 
-void InsLast (Linkedlist *L, Address P);
+// void InsLast (Linkedlist *L, Address P);
 
-void DelFirst (Linkedlist *L, Address *P);
+// void DelFirst (Linkedlist *L, Address *P);
 
 void DelP (Linkedlist *L, Infotype X);
 
-void DelLast (Linkedlist *L, Address *P);
+// void DelLast (Linkedlist *L, Address *P);
 
-void DelAfter (Linkedlist *L, Address *Pdel, Address Prec);
+// void DelAfter (Linkedlist *L, Address *Pdel, Address Prec);
 
 void PrintInfo (Linkedlist L);
 
-int NbElmt (Linkedlist L);
+// int NbElmt (Linkedlist L);
 
-Infotype Max (Linkedlist L);
+// void InversLinkedlist (Linkedlist *L);
 
-Address AdrMax (Linkedlist L);
-
-Infotype Min (Linkedlist L);
-
-Address AdrMin (Linkedlist L);
-
-void InversLinkedlist (Linkedlist *L);
-
-void Konkat1 (Linkedlist *L1, Linkedlist *L2, Linkedlist *L3);
-
-void Switch(Address *P1, Address *P2);
+// void Konkat1 (Linkedlist *L1, Linkedlist *L2, Linkedlist *L3);
 
 #endif
