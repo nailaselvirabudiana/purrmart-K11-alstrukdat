@@ -22,7 +22,7 @@ typedef struct {
 #define Next(p) (p)->next
 #define First(L) ((L).First)
 
-// boolean isEmpty(Linkedlist L);
+boolean isEmpty(Linkedlist L);
 
 void CreateEmpty(Linkedlist *L);
 

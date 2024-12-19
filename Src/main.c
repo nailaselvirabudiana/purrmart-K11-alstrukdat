@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+// Daftar include Feature
 #include "Feature/work.h"
 #include "Feature/wordl3.h"
 #include "Feature/tebak_angka.h"
@@ -8,6 +10,14 @@
 #include "Feature/load.h"
 #include "Feature/save.h"
 #include "Feature/wishlist.h"
+#include "Feature/quantumwordl3.h"
+#include "Feature/cart.h"
+#include "Feature/history.h"
+
+
+
+
+// Daftar include ADT
 #include "ADT/linkedlist/linkedlist.h"
 #include "ADT/mesinkata/mesinkata.h"
 #include "ADT/list/list.h"
@@ -15,7 +25,6 @@
 #include "ADT/queue/queue.h"
 #include "ADT/barang/barang.h"
 #include "ADT/store/store.h"
-#include "Feature/quantumwordl3.h"
 
 int main(){
     ArrayDin store = MakeArrayDin();
@@ -242,6 +251,12 @@ int main(){
             }
         }else if(StringCompare(str2Word(Profile), currentWord)){
             profile(user);
+        } else if (StringCompare(str2Word(Cart), currentWord)) {
+            ADVWORD();
+            if (StringCompare(str2Word(Add), currentWord)) {
+                ADVWORD();
+
+            }
         }
         
         
