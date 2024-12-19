@@ -1,4 +1,3 @@
-
 /* File : stack.h */
 /* deklarasi stack yang diimsdasdplementasi dengan tabel kontigu dan ukuran sama */
 /* TOP adalah alamat elemen puncak */
@@ -6,8 +5,8 @@
 #ifndef stackt_H
 #define stackt_H
 
-#include "boolean.h"
-#include "barang.h"
+#include "../boolean.h"
+#include "../barang/barang.h"
 
 #define NilStack -1
 #define MaxEl 100
@@ -19,6 +18,7 @@ typedef int address;   /* indeks tabel */
 typedef struct {
     CurrentBarang item;
     int quantity;
+    int total_harga;
 } CartItem;
 
 /* Contoh deklarasi variabel bertype stack dengan ciri TOP : */
@@ -68,10 +68,6 @@ void Pop(Stack * S, CartItem* X);
 void PrintStack(Stack S);
     /* I.S. Stack S terdefinisi */
     /* F.S. Elemen-elemen dalam stack dicetak dari TOP ke bawah dengan format [elemen1, elemen2, ..., elemenN] */
-
-int QtyBarang(Stack S);
-
-boolean IsMemberStack (Stack S, CartItem X);
 
 int LengthStack (Stack S);
 

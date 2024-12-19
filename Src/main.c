@@ -255,12 +255,59 @@ int main(){
             ADVWORD();
             if (StringCompare(str2Word(Add), currentWord)) {
                 ADVWORD();
+                Word stuffName;
+                stuffName = currentWord;
+                ADVWORD();
+                Word angka;
+                angka = currentWord;
 
+                while(!EOP){
+                    stuffName = ConcatWord(stuffName, str2Word(" "));
+                    stuffName = ConcatWord(stuffName, angka);
+                    // stuffName += " " + lastString;
+                    ADVWORD();
+                    angka = currentWord;
+                }
+
+                IdxType P = SearchNameArrayDin(store, stuffName);
+                if(P == -1){
+                    printf("Barang tidak ada di store\n");
+                }else{
+                    CurrentBarang barang = store.A[P];
+                    cart_add(&user.A->cart, &barang, Word2int(angka));
+
+                }
+            } else if (StringCompare(str2Word(Remove), currentWord)) {
+                ADVWORD();
+                Word stuffName;
+                stuffName = currentWord;
+                ADVWORD();
+                Word angka;
+                angka = currentWord;
+
+                IdxType P = SearchNameArrayDin(store, stuffName);
+                if(P == -1){
+                    printf("Barang tidak ada di keranjang\n");
+                }else{
+                    CurrentBarang barang = store.A[P];
+                    cart_remove(&user.A->cart, &barang, Word2int(angka));
+                }
+            } else if (StringCompare(str2Word(Pay), currentWord)) {
+                ADVWORD();
+                Word input;
+                input = currentWord;
+                cart_pay(&user.A->cart, &user.A->uang, &user.A->riwayat_pembelian, input);
+            } else if (StringCompare(str2Word(Show), currentWord)) {
+                printCart(user.A->cart);
             }
-        }
-        
-        
-        
+        } else if (StringCompare(str2Word(History), currentWord)) { 
+            ADVWORD();
+            int n = Word2int(currentWord);
+            show_history(user.A->riwayat_pembelian, n);
+        } 
+
+
+
         else {
             printf("Perintah tidak valid\n");
         }

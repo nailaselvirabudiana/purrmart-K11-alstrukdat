@@ -170,3 +170,13 @@ void store_remove(ArrayDin *store, Word item_name) {
         printf(".\n");
     }
 }
+
+CurrentBarang cariBarang (ArrayDin store, Word item_name) {
+    for (int i = 0; i < store.Neff; i++) {
+        if (compareWord(store.A[i].name, item_name)) {
+            return store.A[i];
+        }
+    }
+    printf("Barang tidak ditemukan\n");
+    return;
+}
