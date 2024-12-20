@@ -16,7 +16,7 @@ typedef int infotypestack;
 typedef int address;   /* indeks tabel */
 
 typedef struct {
-    CurrentBarang item;
+    Word item;
     int quantity;
     int total_harga;
 } CartItem;

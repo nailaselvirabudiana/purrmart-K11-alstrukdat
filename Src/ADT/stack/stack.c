@@ -73,7 +73,7 @@ void PrintStack(Stack S) {
     } else {
         printf("Isi riwayat:\n");
         for (int i = S.TOP, index = 1; i >= 0; i--, index++) {
-            printf("%d. %s %d %d\n", index, Word2str(S.items[i].item.name), S.items[i].quantity, S.items[i].total_harga);
+            printf("%d. %s %d %d\n", index, Word2str(S.items[i].item), S.items[i].quantity, S.items[i].total_harga);
         }
     }
 }

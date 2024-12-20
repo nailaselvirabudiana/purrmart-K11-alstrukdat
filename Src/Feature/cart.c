@@ -35,17 +35,17 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
             printf("Selamat kamu telah membeli barang-barang tersebut!\n");
           
 
-            
             for (int i = 0; i < cart->Count; i++) {
                 CartItem keranjang;
-                keranjang.item = cart->Elements[i].Key;
+                printf("test");
+                keranjang.item = cart->Elements[i].Key.name;
                 keranjang.quantity = cart->Elements[i].Value;
-                keranjang.total_harga = keranjang.item.price * keranjang.quantity;
+                keranjang.total_harga = cart->Elements[i].Key.price * cart->Elements[i].Value;
                 Push(riwayat_pembelian, keranjang);
             }
 
  
-            CartItem separator = { .item.name = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
+            CartItem separator = { .item = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
             Push(riwayat_pembelian, separator);
 
        

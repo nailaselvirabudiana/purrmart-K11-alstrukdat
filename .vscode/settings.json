@@ -61,6 +61,7 @@
     "stdlib.h": "c",
     "random": "c",
     "tebak_angka.h": "c",
-    "mesinkata.h": "c"
+    "mesinkata.h": "c",
+    "typeinfo": "c"
   }
 }
