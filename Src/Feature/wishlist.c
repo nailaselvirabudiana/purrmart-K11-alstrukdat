@@ -32,6 +32,11 @@ void WishlistSwap(Linkedlist *W, int swap1, int swap2){
     if(isEmpty(*W)){
         printf("Wishlist kosong!\n");
     }else{
+        if(swap1 > swap2){
+            int temp = swap1;
+            swap1 = swap2;
+            swap2 = temp;
+        }
         for(int i = 0; i<swap1-1; i++){
             s1 = Next(s1);
             if(s1 == Nil){

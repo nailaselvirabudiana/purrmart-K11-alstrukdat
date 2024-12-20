@@ -23,7 +23,17 @@ int work(){
     char Mewing[] = "Mewing", Specialist[] = "Specialist";
     char Inator[] = "Inator", Connoisseur[] = "Connoisseur";
 
-    if(StringCompare(str2Word(Evil), currentWord)){
+    if(Word2int(currentWord) == 1){
+        Case = 1;
+    }else if(Word2int(currentWord) == 2){
+        Case = 2;
+    }else if(Word2int(currentWord) == 3){
+        Case = 3;
+    }else if(Word2int(currentWord) == 4){
+        Case = 4;
+    }else if(Word2int(currentWord) == 5){
+        Case = 5;
+    }else if(StringCompare(str2Word(Evil), currentWord)){
         ADVWORD();
         if(StringCompare(str2Word(Lab), currentWord)){
             ADVWORD();
@@ -54,6 +64,9 @@ int work(){
         if(StringCompare(str2Word(Connoisseur), currentWord)){
             Case = 5;
         }
+    }else{
+        printf("Input invalid!\n");
+        return 0;
     }
     
     switch(Case){
