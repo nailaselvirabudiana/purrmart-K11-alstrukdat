@@ -34,6 +34,8 @@ int main(){
 
     ArrayDin store = MakeArrayDin();
     List Listuser = MakeListUser();
+    Stack riwayat_pembelian;
+    CreateEmptyStack(&riwayat_pembelian);
     printf("sukses");
     Queue request_queue;
     printf("sukses\n");
@@ -42,7 +44,6 @@ int main(){
     Linkedlist wishlist;
     printf("sukses");
     CreateEmpty(&wishlist);
-    printf("tdt");
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";

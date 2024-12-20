@@ -15,6 +15,10 @@ void show_history(Stack riwayat_pembelian, int n) {
     int start_idx = riwayat_pembelian.TOP;
     int end_idx = riwayat_pembelian.TOP;
 
+    CartItem X;
+
+
+    Pop(&riwayat_pembelian, &X);
 
     ReverseStack(&riwayat_pembelian);
 
