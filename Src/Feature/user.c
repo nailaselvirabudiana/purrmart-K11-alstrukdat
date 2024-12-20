@@ -1,15 +1,15 @@
 #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
-#include "user.h"
-#include "mesinkata.h"
+#include "../Feature/user.h"
+#include "../ADT/mesinkata/mesinkata.h"
 
 
 // #include "user.h"
 // #include <string.h>
 // #include <stdio.h>
 
-User CreateUser(char *nama, char *password, int uang, Stack riwayat_pembelian, Map cart, List wishlist) {
+User CreateUser(char *nama, char *password, int uang, Stack riwayat_pembelian, Map cart, Linkedlist wishlist) {
     User user;
     cpStr(user.nama, nama, NMax - 1);
     cpStr(user.password, password, NMax - 1);
