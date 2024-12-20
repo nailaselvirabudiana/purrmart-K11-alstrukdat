@@ -1,7 +1,7 @@
 #include <stdio.h>
 # include "graph.h"
-# include "../mesinkarakter/mesinkarakter.h"
-# include "../mesinkata/mesinkata.h"
+# include "../ADT/mesinkarakter/mesinkarakter.h"
+# include "../ADT/mesinkata/mesinkata.h"
 
 int graph[MAX][MAX];   // Graph adjacency matrix
 int visited[MAX];      // Array for visited nodes
