@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "stack.h"
 
@@ -70,9 +69,9 @@ void Pop(Stack *S, CartItem *X) {
 
 void PrintStack(Stack S) {
     if (IsEmptyStack(S)) {
-        printf("Cart kosong.\n");
+        printf("riwayat kosong.\n");
     } else {
-        printf("Isi Cart:\n");
+        printf("Isi riwayat:\n");
         for (int i = S.TOP, index = 1; i >= 0; i--, index++) {
             printf("%d. %s %d %d\n", index, Word2str(S.items[i].item.name), S.items[i].quantity, S.items[i].total_harga);
         }
@@ -83,4 +82,19 @@ void PrintStack(Stack S) {
 
 int LengthStack (Stack S){
     return S.TOP + 1;
+}
+
+void ReverseStack(Stack *S)
+/* Membalikkan urutan elemen dalam stack */
+{
+    Stack temp;
+    CreateEmptyStack(&temp);
+    CartItem X;
+    
+    while (!IsEmptyStack(*S)) {
+        Pop(S, &X);
+        Push(&temp, X);
+    }
+    
+    *S = temp;
 }

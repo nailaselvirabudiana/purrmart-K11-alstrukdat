@@ -22,4 +22,5 @@ void SetUser(List *L, IdxType i, User v);
 void InsertLastUser(List *L, User X);
 boolean SearchUser(List L, User X);
 void DisplayListUser (List L);
+
 #endif

@@ -71,5 +71,7 @@ void PrintStack(Stack S);
 
 int LengthStack (Stack S);
 
+void ReverseStack(Stack *S);
+
 
 #endif

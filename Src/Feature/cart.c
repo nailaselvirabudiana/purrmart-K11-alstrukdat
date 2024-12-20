@@ -10,7 +10,6 @@
 
 void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input) {
     int total = 0;
-
     printf("Kamu akan membeli barang-barang berikut:\n");
     printCart(*cart);
 
@@ -20,13 +19,12 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input) {
 
     printf("\nTotal biaya yang harus dikeluarkan adalah %d. Apakah jadi dibeli? (Ya/Tidak): ", total);
 
-
     if (compareWord(input, str2Word("Ya"))) {
         if (*uang_user >= total) {
 
             *uang_user -= total;
-
-            printf("Transaksi berhasil!\nTotal: %d, Sisa uang: %d\n", total, *uang_user);
+            printf("Selamat kamu telah membeli barang-barang tersebut!\n");
+          
 
             
             for (int i = 0; i < cart->Count; i++) {
@@ -38,7 +36,7 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input) {
             }
 
  
-            CartItem separator = { .item.name = str2Word("END_TRANSACTION"), .quantity = 0, .total_harga = 0 };
+            CartItem separator = { .item.name = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
             Push(riwayat_pembelian, separator);
 
        
@@ -94,11 +92,13 @@ void printCart(Map cart) {
         printf("Keranjang Kosong\n");
     } else {
         printf("Isi Keranjang:\n");
-        printf("Jumlah | Nama Barang | Harga \n");
+        printf("%-10s | %-20s | %-10s\n", "Jumlah", "Nama Barang", "Harga");
+        printf("--------------------------------------------------------\n");
         for (int i = 0; i < cart.Count; i++) {
-            printf("%d      | ", cart.Elements[i].Value);
-            printWord(cart.Elements[i].Key.name);
-            printf("       | %d\n", cart.Elements[i].Key.price * cart.Elements[i].Value);
+            printf("%-10d | %-20s | %-10d\n",
+                   cart.Elements[i].Value,
+                   Word2str(cart.Elements[i].Key.name),
+                   cart.Elements[i].Key.price * cart.Elements[i].Value);
         }
     }
 }

@@ -178,5 +178,4 @@ CurrentBarang cariBarang (ArrayDin store, Word item_name) {
         }
     }
     printf("Barang tidak ditemukan\n");
-    return;
 }

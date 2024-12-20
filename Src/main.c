@@ -13,7 +13,7 @@
 #include "Feature/quantumwordl3.h"
 #include "Feature/cart.h"
 #include "Feature/history.h"
-
+#include "Feature/profile.h"
 
 
 
@@ -22,17 +22,28 @@
 #include "ADT/mesinkata/mesinkata.h"
 #include "ADT/list/list.h"
 #include "ADT/list_dinamis/list_dinamis.h"
+#include "ADT/stack/stack.h"
+#include "ADT/setmap/map.h"
 #include "ADT/queue/queue.h"
 #include "ADT/barang/barang.h"
 #include "ADT/store/store.h"
 
+
+
 int main(){
+    printf("test");
     ArrayDin store = MakeArrayDin();
+    printf("sukses\n");
     Queue request_queue;
+    printf("sukses\n");
     List user = MakeListUser();
+    printf("sukses");
     CreateQueue(&request_queue);
+    printf("sukses");
     Linkedlist wishlist;
+    printf("sukses");
     CreateEmpty(&wishlist);
+    printf("tdt");
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";
@@ -250,7 +261,7 @@ int main(){
                 WishlistShow(wishlist);
             }
         }else if(StringCompare(str2Word(Profile), currentWord)){
-            profile(user);
+            profile(&user);
         } else if (StringCompare(str2Word(Cart), currentWord)) {
             ADVWORD();
             if (StringCompare(str2Word(Add), currentWord)) {

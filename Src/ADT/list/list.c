@@ -2,10 +2,12 @@
 #include <stdio.h>
 
 List MakeListUser() {
+    // printf("mantap");
     List L ;
     L.Neff = 0;
     return L;
 }
+
 
 int LengthUser(List L) {
     return L.Neff;
@@ -52,3 +54,4 @@ void DisplayListUser(List L) {
         }
     }
 }
+

@@ -2,44 +2,57 @@
 #include <stdio.h>
 #include "../ADT/boolean.h"
 
+
 void show_history(Stack riwayat_pembelian, int n) {
     if (IsEmptyStack(riwayat_pembelian)) {
         printf("Kamu belum membeli barang apapun!\n");
         return;
     }
 
-    int length = LengthStack(riwayat_pembelian); 
-    int transaksi_cnt = 0; 
-    int transaksi_total = 0; 
-    boolean is_new_transaction = true;
     printf("Riwayat pembelian barang:\n\n");
-    for (int i = 0; i < length; i++) {
-        CartItem current_item = riwayat_pembelian.items[i];
-        if (compareWord(current_item.item.name, str2Word("END_TRANSACTION"))) {
-            if (!is_new_transaction) {
-                printf("Total %d\n\n", transaksi_total); 
+
+    int transactions = 0;
+    int start_idx = riwayat_pembelian.TOP;
+    int end_idx = riwayat_pembelian.TOP;
+
+
+    ReverseStack(&riwayat_pembelian);
+
+    // Iterasi untuk memproses setiap transaksi
+    while (transactions < n && start_idx >= 0) {
+
+        while (start_idx >= 0 && 
+               !compareWord(riwayat_pembelian.items[start_idx].item.name, str2Word("END_TRANSACTION"))) {
+            start_idx--;
+        }
+
+        if (start_idx >= 0) {
+            
+            int total_harga = riwayat_pembelian.items[start_idx].total_harga;
+
+
+            transactions++;
+            printf("Pembelian %d - Total %d\n", transactions, total_harga);
+            printf("%-10s | %-15s | %-10s\n", "Kuantitas", "Nama Barang", "Total Harga");
+            printf("---------------------------------------------\n");
+
+            // Cetak item dalam transaksi
+            for (int j = start_idx + 1; j <= end_idx; j++) {
+                if (!compareWord(riwayat_pembelian.items[j].item.name, str2Word("END_TRANSACTION"))) {
+                    printf("%-10d | %-15s | %-10d\n",
+                           riwayat_pembelian.items[j].quantity,
+                           Word2str(riwayat_pembelian.items[j].item.name),
+                           riwayat_pembelian.items[j].total_harga);
+                }
             }
-            transaksi_cnt++;
-            transaksi_total = 0; 
-            is_new_transaction = true;
-            if (transaksi_cnt >= n) {
-                break;
-            }
-    } else {
-            if (is_new_transaction) {
-                printf("Pembelian %d\n", transaksi_cnt + 1, transaksi_total); 
-                is_new_transaction = false;
-                printf("Kuantitas\tNama\t\tTotal\n");
-            }
-            printf("%d\t\t%-10s\t%d\n",
-                   current_item.quantity,
-                   Word2str(current_item.item.name),
-                   current_item.total_harga);
-        
-            transaksi_total += current_item.total_harga;
+            printf("\n");
+
+
+            end_idx = start_idx - 1;
+            start_idx--;
         }
     }
-    if (!is_new_transaction) {
-        printf("Total %d\n", transaksi_total);
-    }
+
+
+    ReverseStack(&riwayat_pembelian);
 }

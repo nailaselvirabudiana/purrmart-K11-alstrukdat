@@ -6,6 +6,8 @@
 #include "load.h"
 #include "../ADT/list/list.h"
 #include "user.h"
+#include "../ADT/mesinkata/mesinkata.h"
+#include "../ADT/stack/stack.h"
 
 // Fungsi untuk menulis data ke dalam file
 void writeToFile(FILE *file, ArrayDin *store, List *user);
