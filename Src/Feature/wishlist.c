@@ -65,6 +65,7 @@ void WishlistSwap(Linkedlist *W, int swap1, int swap2){
                 Next(s1) = Temp;
                 First(*W) = s2;
             }
+            printf("Berhasil menukar posisi %s dengan %s pada wishlist!\n", Word2str(s1->info), Word2str(s2->info));
         }else{
             Address Temp;
             Address Prev1 = First(*W);
@@ -86,6 +87,7 @@ void WishlistSwap(Linkedlist *W, int swap1, int swap2){
                 Next(Prev2) = s1;
                 Next(s1) = Temp; 
             }
+            printf("Berhasil menukar posisi %s dengan %s pada wishlist!\n", Word2str(s1->info), Word2str(s2->info));
         }
     }
 }

@@ -305,9 +305,6 @@ int main(){
             int n = Word2int(currentWord);
             show_history(user.A->riwayat_pembelian, n);
         } 
-
-
-
         else {
             printf("Perintah tidak valid\n");
         }
