@@ -43,7 +43,7 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                 ReadInt(file, &L);
                 ReadInt(file, &X);
                 CartItem endtrans;
-                endtrans.item = str2Word("END_TRANSACTION");
+                endtrans.item.name = str2Word("END_TRANSACTION");
                 endtrans.quantity = L;
                 endtrans.total_harga = X;
                 Push(&riwayat_pembelian, endtrans);
@@ -56,7 +56,7 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                     char namabarang[100];
                     ReadMultiple(file, namabarang);
                     CartItem items;
-                    items.item = str2Word(namabarang);
+                    items.item.name = str2Word(namabarang);
                     items.quantity = qty;
                     items.total_harga = totalbiaya;
                     Push(&riwayat_pembelian, items);

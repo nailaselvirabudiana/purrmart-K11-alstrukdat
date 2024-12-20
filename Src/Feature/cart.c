@@ -38,14 +38,14 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
             for (int i = 0; i < cart->Count; i++) {
                 CartItem keranjang;
                 printf("test");
-                keranjang.item = cart->Elements[i].Key.name;
+                keranjang.item = cart->Elements[i].Key;
                 keranjang.quantity = cart->Elements[i].Value;
                 keranjang.total_harga = cart->Elements[i].Key.price * cart->Elements[i].Value;
                 Push(riwayat_pembelian, keranjang);
             }
 
  
-            CartItem separator = { .item = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
+            CartItem separator = { .item.name = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
             Push(riwayat_pembelian, separator);
 
        

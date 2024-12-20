@@ -18,7 +18,6 @@ void show_history(Stack riwayat_pembelian, int n) {
     CartItem X;
 
 
-    Pop(&riwayat_pembelian, &X);
 
     ReverseStack(&riwayat_pembelian);
 
@@ -26,7 +25,7 @@ void show_history(Stack riwayat_pembelian, int n) {
     while (transactions < n && start_idx >= 0) {
 
         while (start_idx >= 0 && 
-               !compareWord(riwayat_pembelian.items[start_idx].item, str2Word("END_TRANSACTION"))) {
+               !compareWord(riwayat_pembelian.items[start_idx].item.name, str2Word("END_TRANSACTION"))) {
             start_idx--;
         }
 
@@ -42,10 +41,10 @@ void show_history(Stack riwayat_pembelian, int n) {
 
             // Cetak item dalam transaksi
             for (int j = start_idx + 1; j <= end_idx; j++) {
-                if (!compareWord(riwayat_pembelian.items[j].item, str2Word("END_TRANSACTION"))) {
+                if (!compareWord(riwayat_pembelian.items[j].item.name, str2Word("END_TRANSACTION"))) {
                     printf("%-10d | %-15s | %-10d\n",
                            riwayat_pembelian.items[j].quantity,
-                           Word2str(riwayat_pembelian.items[j].item),
+                           Word2str(riwayat_pembelian.items[j].item.name),
                            riwayat_pembelian.items[j].total_harga);
                 }
             }

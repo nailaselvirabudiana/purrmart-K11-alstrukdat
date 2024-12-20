@@ -31,7 +31,7 @@ void writeToFile(FILE *file, ArrayDin *store, List *user) {
             while (!IsEmptyStack(user->A[i].riwayat_pembelian)) {
                 CartItem brg;
                 Pop(&user->A[i].riwayat_pembelian, &brg);
-                if (compareWord(brg.item, str2Word("END_TRANSACTION"))){
+                if (compareWord(brg.item.name, str2Word("END_TRANSACTION"))){
                     total_riwayat++;
                 }
                 Push(&tempStack, brg);
@@ -41,11 +41,11 @@ void writeToFile(FILE *file, ArrayDin *store, List *user) {
             while (!IsEmptyStack(tempStack)){
                 CartItem hist;
                 Pop(&tempStack, &hist);
-                if (compareWord(hist.item, str2Word("END_TRANSACTION"))){
+                if (compareWord(hist.item.name, str2Word("END_TRANSACTION"))){
                     fprintf(file, "%d %d\n", hist.quantity, hist.total_harga);
                 }
                 else{
-                    fprintf(file, "%d %d %s\n", hist.total_harga, hist.quantity, Word2str(hist.item));
+                    fprintf(file, "%d %d %s\n", hist.total_harga, hist.quantity, Word2str(hist.item.name));
                 }
             }
 
