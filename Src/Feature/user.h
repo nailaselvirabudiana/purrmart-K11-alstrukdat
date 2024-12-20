@@ -5,8 +5,8 @@
 
 #include "../ADT/boolean.h"
 #include "../ADT/stack/stack.h"
-#include "../ADT/map/map.h"
-#include "../linkedlist/linkedlist.h"
+#include "../ADT/setmap/map.h"
+#include "../ADT/linkedlist/linkedlist.h"
 
 typedef struct {
     char nama[NMax];    // Nama pengguna
