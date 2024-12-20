@@ -317,7 +317,7 @@ int main(){
         } else if (StringCompare(str2Word(History), currentWord)) { 
             ADVWORD();
             int n = Word2int(currentWord);
-            PrintStack(Listuser.A->riwayat_pembelian);
+            // PrintStack(Listuser.A->riwayat_pembelian);
             // printf()
             show_history(Listuser.A->riwayat_pembelian, n);
         } 

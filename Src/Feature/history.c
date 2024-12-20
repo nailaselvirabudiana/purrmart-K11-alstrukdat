@@ -57,5 +57,4 @@ void show_history(Stack riwayat_pembelian, int n) {
     }
 
 
-    ReverseStack(&riwayat_pembelian);
 }
