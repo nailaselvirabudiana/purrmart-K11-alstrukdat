@@ -80,4 +80,6 @@ Word ConcatWord(Word K1, Word K2);
 
 Word ReadLine();
 
+boolean isKataInteger(Word W);
+
 #endif
