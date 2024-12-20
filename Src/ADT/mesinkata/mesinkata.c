@@ -153,7 +153,7 @@ void STARTINPUT()
 }
 
 void ReadInt(FILE *file, int *angka) {
-    fscanf(file, "%d", angka);
+    fscanf(file, "%d ", angka);
 }
 
 void ReadWord(FILE *file, char *str) {
