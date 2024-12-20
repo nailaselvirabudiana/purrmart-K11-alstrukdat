@@ -212,4 +212,14 @@ Word ReadLine() {
     
     return result;
 }
+
+boolean isKataInteger(Word W) {
+    for (int i = 0; i < W.Length; i++) {
+        if (W.TabWord[i] < '0' || W.TabWord[i] > '9') {
+            return false;
+        }
+    }
+    return true;
+}
+
 // Removed duplicate PrintWord function since it's the same as printWord
