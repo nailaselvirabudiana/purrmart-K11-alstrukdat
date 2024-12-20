@@ -36,6 +36,8 @@ int main(){
     List Listuser = MakeListUser();
     Stack riwayat_pembelian;
     CreateEmptyStack(&riwayat_pembelian);
+    Map cart;
+    CreateEmptyMap(&cart);
     printf("sukses");
     Queue request_queue;
     printf("sukses\n");
