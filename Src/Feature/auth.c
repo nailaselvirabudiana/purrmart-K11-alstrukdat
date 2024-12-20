@@ -39,7 +39,15 @@ void registerUser(List *listuser) {
     cpStr (newUser.nama, Word2str(username),NMax-1);
     cpStr (newUser.password, Word2str(password),NMax-1);
     newUser.uang = 0; // Default uang adalah 0
-
+    Map cart;
+    CreateEmptyMap(&cart);
+    newUser.cart = cart;
+    Stack riwayat_pembelian;
+    CreateEmptyStack(&riwayat_pembelian);
+    newUser.riwayat_pembelian = riwayat_pembelian;
+    Linkedlist wishlist;
+    CreateEmpty(&wishlist);
+    newUser.wishlist = wishlist;
     InsertLastUser(listuser, newUser); // Menambahkan user baru ke akhir list
     printf("Akun dengan username '%s' telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", Word2str(username));
 }

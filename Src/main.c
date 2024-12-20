@@ -42,10 +42,10 @@ int main(){
     Queue request_queue;
     printf("sukses\n");
     CreateQueue(&request_queue);
-    printf("sukses");
-    Linkedlist wishlist;
-    printf("sukses");
-    CreateEmpty(&wishlist);
+    // printf("sukses");
+    // Linkedlist wishlist;
+    // printf("sukses");
+    // CreateEmpty(&Listuser.A->wishlist);
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";
@@ -243,25 +243,25 @@ int main(){
         }else if(StringCompare(str2Word(Wishlist), currentWord)) {
             ADVWORD();
             if(StringCompare(str2Word(Add), currentWord)){
-                WishlistAdd(store, &wishlist);
+                WishlistAdd(store, &Listuser.A->wishlist);
             }else if(StringCompare(str2Word(Swap), currentWord)){ //kalau ini salah harusnya di spacing
                 ADVWORD();
                 int swap1 = Word2int(currentWord);
                 ADVWORD();
                 int swap2 = Word2int(currentWord);
-                WishlistSwap(&wishlist, swap1, swap2);
+                WishlistSwap(&Listuser.A->wishlist, swap1, swap2);
             }else if(StringCompare(str2Word(Remove), currentWord)){
                 if(currentChar == '\n'){
-                    WishlistRemove(&wishlist);
+                    WishlistRemove(&Listuser.A->wishlist);
                 }else{
                     ADVWORD();
                     int iremove = Word2int(currentWord);
-                    WishlistRemovePos(&wishlist, iremove);
+                    WishlistRemovePos(&Listuser.A->wishlist, iremove);
                 }
             }else if(StringCompare(str2Word(Clear), currentWord)){
-                WishlistClear(&wishlist);
+                WishlistClear(&Listuser.A->wishlist);
             }else if(StringCompare(str2Word(Show), currentWord)){
-                WishlistShow(wishlist);
+                WishlistShow(Listuser.A->wishlist);
             }
         }else if(StringCompare(str2Word(Profile), currentWord)){
             profile(&Listuser);
