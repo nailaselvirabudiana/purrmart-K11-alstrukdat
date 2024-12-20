@@ -2,15 +2,10 @@
 #include <stdio.h>
 
 List MakeListUser() {
-    // printf("mantap");
-    List L;
-    IdxType i;
-    for (i = 0; i< MaxEl; i++ ) {
-        L.A[i] = Mark;
-    }
+    List L ;
+    L.Neff = 0;
     return L;
 }
-
 
 int LengthUser(List L) {
     return L.Neff;

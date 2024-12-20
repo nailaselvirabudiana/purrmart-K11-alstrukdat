@@ -5,17 +5,17 @@
 #include "../boolean.h"
 
 
-#define MaxEl 100 // Maksimal elemen dalam list
-#define Mark User
+#define MaxElUser 10 // Maksimal elemen dalam list
+// #define Mark 
 
 typedef int IdxType;
 typedef struct {
-    User A[MaxEl];  // Array penyimpan elemen bertipe User
+    User A[MaxElUser];  // Array penyimpan elemen bertipe User
     int Neff;       // Banyaknya elemen efektif
 } List;
 
 // Fungsi dan prosedur terkait List
-List MakeListUser(List L);
+List MakeListUser();
 int LengthUser(List L);
 boolean IsEmptyUser(List L);
 User GetUser(List L, IdxType i);

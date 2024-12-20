@@ -31,9 +31,9 @@
 
 
 int main(){
-    printf("test");
+
     ArrayDin store = MakeArrayDin();
-    List Listuser = MakeListUser(Listuser);
+    List Listuser = MakeListUser();
     printf("sukses");
     Queue request_queue;
     printf("sukses\n");
