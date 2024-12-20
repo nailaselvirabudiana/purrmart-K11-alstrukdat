@@ -7,7 +7,7 @@
 #include "../ADT/store/store.h"
 
 
-void cart_pay (Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input);
+void cart_pay (Map *cart, int *uang_user, Stack *riwayat_pembelian);
 
 void cart_add(Map *cart, CurrentBarang *barang, int jumlah);
 

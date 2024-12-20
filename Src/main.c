@@ -304,16 +304,18 @@ int main(){
                     cart_remove(&Listuser.A->cart, &barang, Word2int(angka));
                 }
             } else if (StringCompare(str2Word(Pay), currentWord)) {
-                ADVWORD();
-                Word input;
-                input = currentWord;
-                cart_pay(&Listuser.A->cart, &Listuser.A->uang, &Listuser.A->riwayat_pembelian, input);
+                // STARTWORD();
+                // Word input;
+                // input = currentWord;
+                cart_pay(&Listuser.A->cart, &Listuser.A->uang, &Listuser.A->riwayat_pembelian);
             } else if (StringCompare(str2Word(Show), currentWord)) {
                 printCart(Listuser.A->cart);
             }
         } else if (StringCompare(str2Word(History), currentWord)) { 
             ADVWORD();
             int n = Word2int(currentWord);
+            PrintStack(Listuser.A->riwayat_pembelian);
+            // printf()
             show_history(Listuser.A->riwayat_pembelian, n);
         } 
         else {

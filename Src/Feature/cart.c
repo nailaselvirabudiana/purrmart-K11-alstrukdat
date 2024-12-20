@@ -8,7 +8,13 @@
 #include "../ADT/stack/stack.h"
 #include "user.h"
 
-void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input) {
+void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
+    
+    if (cart->Count == 0) {
+        printf("Keranjang belanja kosong! Tidak ada barang yang dapat dibeli.\n");
+        return;
+    }
+    
     int total = 0;
     printf("Kamu akan membeli barang-barang berikut:\n");
     printCart(*cart);
@@ -18,6 +24,9 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian, Word input) {
     }
 
     printf("\nTotal biaya yang harus dikeluarkan adalah %d. Apakah jadi dibeli? (Ya/Tidak): ", total);
+    STARTWORD();
+    Word input;
+    input = currentWord;
 
     if (compareWord(input, str2Word("Ya"))) {
         if (*uang_user >= total) {
@@ -60,10 +69,10 @@ void cart_add(Map *cart, CurrentBarang *barang, int jumlah){
 
     if (IsMemberMap(*cart, *barang)) {
         ubahValueMap(cart, *barang, ValueMap(*cart, *barang) + jumlah);
-        printf("%s berhasil ditambahkan kembali sebanyak %d\n", barang, jumlah);
+        printf("%s berhasil ditambahkan kembali sebanyak %d\n", Word2str(barang->name), jumlah);
     } else {
         InsertMap(cart, *barang, jumlah);
-        printf("%s berhasil ditambahkan sebanyak %d\n", barang, jumlah);
+        printf("%s berhasil ditambahkan sebanyak %d\n", Word2str(barang->name) , jumlah);
 }
 
 }
@@ -77,9 +86,9 @@ void cart_remove(Map *cart, CurrentBarang *barang, int jumlah){
     if (IsMemberMap(*cart, *barang)){
         if (ValueMap(*cart, *barang) > jumlah) {
             ubahValueMap(cart, *barang, ValueMap(*cart, *barang) - jumlah);
-            printf("%s berhasil dihapus sebanyak %d\n",barang, jumlah);
+            printf("%s berhasil dihapus sebanyak %d\n",Word2str(barang->name), jumlah);
         } else {
-            printf("%s berhasil dihapus sebanyak %d\n", barang ,ValueMap(*cart, *barang));
+            printf("%s berhasil dihapus sebanyak %d\n", Word2str(barang->name) ,ValueMap(*cart, *barang));
             DeleteMap(cart, *barang);
         }
     } else {

@@ -79,6 +79,7 @@ void store_list(ArrayDin store) {
         for (int i = 0; i < store.Neff; i++) {
             printf("- ");
             printWord(store.A[i].name);
+            printf(" - Harga: %d", store.A[i].price);
             // //DEBUG
             // printf(" - %d", store.A[i].price);
             printf("\n");
