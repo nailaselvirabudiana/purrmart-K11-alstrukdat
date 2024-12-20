@@ -3,8 +3,11 @@
 
 List MakeListUser() {
     // printf("mantap");
-    List L ;
-    L.Neff = 0;
+    List L;
+    IdxType i;
+    for (i = 0; i< MaxEl; i++ ) {
+        L.A[i] = Mark;
+    }
     return L;
 }
 

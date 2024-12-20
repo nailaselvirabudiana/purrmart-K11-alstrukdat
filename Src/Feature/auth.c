@@ -22,11 +22,13 @@ void registerUser(List *listuser) {
     
     Word username = currentWord;
 
+    printf("mantap");
     // Mengecek apakah username sudah terdaftar
     if (UsernameTaken(listuser, Word2str(username))) {
         printf("Akun dengan username '%s' sudah terdaftar. Silakan lakukan REGISTER ulang.\n", Word2str(username));
         return;
     }
+
 
     printf("Password: ");
     STARTINPUT();

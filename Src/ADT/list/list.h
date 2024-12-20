@@ -6,6 +6,7 @@
 
 
 #define MaxEl 100 // Maksimal elemen dalam list
+#define Mark User
 
 typedef int IdxType;
 typedef struct {
@@ -14,7 +15,7 @@ typedef struct {
 } List;
 
 // Fungsi dan prosedur terkait List
-List MakeListUser();
+List MakeListUser(List L);
 int LengthUser(List L);
 boolean IsEmptyUser(List L);
 User GetUser(List L, IdxType i);
