@@ -107,7 +107,7 @@ boolean IsMemberMap(Map M, keytype k)
 /* Fungsi untuk mencetak isi Map */
 void PrintMap(Map M) {
     if (IsEmptyMap(M)) {
-        printf("Map is empty.\n");
+        printf("Cart is empty.\n");
         return;
     }
     for (address i = 0; i < M.Count; i++) {

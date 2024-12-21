@@ -149,7 +149,7 @@ int main(){
             }
             else if (StringCompare(currentWord, str2Word(Logout))){
                 clear_screen();
-                printf("Anda belum login, silakan login terlebih dahulu\n");
+                logout();
             }
             else if (StringCompare(currentWord, str2Word(Quit))){
                 isLoggedIn = false;

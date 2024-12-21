@@ -29,7 +29,7 @@ void registerUser(List *listuser) {
     }
 
     if (username.Length == 0) {
-        printf("username tidak valid");
+        printf("Username tidak valid");
         return;
     }
 
@@ -39,7 +39,7 @@ void registerUser(List *listuser) {
     Word password = currentWord;
 
     if (password.Length == 0) {
-        printf("password tidak valid");
+        printf("Password tidak valid");
         return;
     }
     
@@ -92,7 +92,7 @@ void logout() {
     if (!isLoggedIn) {
         printf("Anda belum login.\n");
     } else {
-        printf("telah logout dari sistem PURRMART. Silakan REGISTER/LOGIN kembali untuk melanjutkan.\n");
+        printf("Telah logout dari sistem PURRMART. Silakan REGISTER/LOGIN kembali untuk melanjutkan.\n");
         isLoggedIn = false;
     }
 }
