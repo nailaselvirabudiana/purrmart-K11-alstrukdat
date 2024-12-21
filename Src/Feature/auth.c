@@ -2,7 +2,7 @@
 #include "auth.h"
 
 // List listuser;
-boolean isLoggedIn = false;
+// boolean isLoggedIn = false;
 User LoggedInUser;
 
 boolean UsernameTaken(List *L, char *username) {
@@ -22,7 +22,6 @@ void registerUser(List *listuser) {
     
     Word username = currentWord;
 
-    printf("mantap");
     // Mengecek apakah username sudah terdaftar
     if (UsernameTaken(listuser, Word2str(username))) {
         printf("Akun dengan username '%s' sudah terdaftar. Silakan lakukan REGISTER ulang.\n", Word2str(username));
@@ -38,7 +37,7 @@ void registerUser(List *listuser) {
     User newUser;
     cpStr (newUser.nama, Word2str(username),NMax-1);
     cpStr (newUser.password, Word2str(password),NMax-1);
-    newUser.uang = 0; // Default uang adalah 0
+    newUser.uang = 0; 
     Map cart;
     CreateEmptyMap(&cart);
     newUser.cart = cart;
@@ -48,7 +47,7 @@ void registerUser(List *listuser) {
     Linkedlist wishlist;
     CreateEmpty(&wishlist);
     newUser.wishlist = wishlist;
-    InsertLastUser(listuser, newUser); // Menambahkan user baru ke akhir list
+    InsertLastUser(listuser, newUser); 
     printf("Akun dengan username '%s' telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", Word2str(username));
 }
 

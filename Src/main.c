@@ -14,6 +14,7 @@
 #include "Feature/cart.h"
 #include "Feature/history.h"
 #include "Feature/profile.h"
+#include "Feature/hiasan.h"
 
 
 
@@ -29,23 +30,15 @@
 #include "ADT/store/store.h"
 
 
+boolean isLoggedIn = false;
+
 
 int main(){
 
     ArrayDin store = MakeArrayDin();
     List Listuser = MakeListUser();
-    Stack riwayat_pembelian;
-    CreateEmptyStack(&riwayat_pembelian);
-    Map cart;
-    CreateEmptyMap(&cart);
-    printf("sukses");
     Queue request_queue;
-    printf("sukses\n");
     CreateQueue(&request_queue);
-    // printf("sukses");
-    // Linkedlist wishlist;
-    // printf("sukses");
-    // CreateEmpty(&Listuser.A->wishlist);
 
     char Login[] = "LOGIN";
     char Logout[] = "LOGOUT";
@@ -74,15 +67,18 @@ int main(){
     char Pay[] = "PAY";
     char History[] = "HISTORY";
     char Profile[] = "PROFILE";
+    char DFS[] = "OPTIMASIRUTE";
 
-    printf("=====[PURRMART]=====\n");
-    printf("    1. START\n");
-    printf("    2. LOAD\n");
-    printf("    3. QUIT\n");
-    printf("Ketik \"HELP\" for more information\n");
+    opening();
+    printf("\t\t\t ==============================[SELAMAT DATANG DI PURRMART]==============================\t\t\t\n");
+    printf("\t\t\t                                       1. START                      \t\t\t\n");
+    printf("\t\t\t                                       2. LOAD                       \t\t\t\n");
+    printf("\t\t\t                                       3. QUIT                       \t\t\t\n");
+    printf("\t\t\t                          Ketik \"HELP\" for more information        \t\t\t\n");
+
 
     boolean masuk = false;
-    boolean islogin = false;
+    // boolean islogin = false;
 
     while ( !masuk ){
         printf(">> ");
@@ -117,7 +113,7 @@ int main(){
             }
         }
 
-    while (!islogin){
+    while (!isLoggedIn){
         printf("=====[Welcome To PURRMART]=====\n");
         printf("    1. REGISTER\n");
         printf("    2. LOGIN\n");
@@ -128,14 +124,12 @@ int main(){
 
         if (StringCompare(currentWord, str2Word(Register))){
             registerUser(&Listuser);
-            printf("test");
-            DisplayListUser(Listuser);
         }
         else if (StringCompare(currentWord, str2Word(Login))){
             int a = 0;
             a += login(&Listuser);
             if (a == 1){
-                islogin = true;
+                isLoggedIn = true;
             }
         }
         else if (StringCompare(currentWord, str2Word(Quit))){
@@ -146,7 +140,7 @@ int main(){
         }
     }        
 
-    while(Word2str(currentWord) != Quit){
+    while(isLoggedIn) {
         
         printf("=====[PURRMART LOBBY]=====\n");
         printf("    1. WORK\n");
@@ -167,7 +161,8 @@ int main(){
         printf("    16. WISHLIST REMOVE\n");
         printf("    17. WISHLIST CLEAR\n");
         printf("    18. WISHLIST SHOW\n");
-        printf("    19. QUIT\n");
+        printf("    19. OPTIMASIRUTE\n");
+        printf("    20. QUIT\n");
         printf("Ketik \"HELP\" for more information \n");
         printf(">> ");
         STARTWORD();
@@ -231,8 +226,35 @@ int main(){
                     
                 } else {
                     printf("Command Tidak tersedia, coba lagi\n");\
-                    
                 }
+            }
+
+            else if (StringCompare(str2Word(Help), currentWord)) {
+                printf("=====[ Menu Help PURRMART]=====\n");
+                printf("    1. WORK -> Untuk bekerja\n");
+                printf("    2. WORK CHALLENGE -> Untuk mengerjakan challenge\n");
+                printf("    3. STORE LIST -> Untuk melihat barang-barang di toko\n");
+                printf("    4. STORE REQUEST -> Untuk meminta penambahan barang\n");
+                printf("    5. STORE SUPPLY -> Untuk menambahkan barang dari permintaan\n");
+                printf("    6. STORE REMOVE -> Untuk menghapus barang\n");
+                printf("    7. LOGOUT -> Untuk keluar dari sesi\n");
+                printf("    8. PROFILE -> Untuk melihat profil\n");
+                printf("    9. CART ADD -> Untuk menambahkan barang ke keranjang\n");
+                printf("    10. CART REMOVE -> Untuk menghapus barang dari keranjang\n");
+                printf("    11. CART SHOW -> Untuk melihat isi keranjang\n");
+                printf("    12. CART PAY -> Untuk membayar barang dalam keranjang\n");
+                printf("    13. HISTORY -> Untuk melihat riwayat pembelian\n");
+                printf("    14. WISHLIST ADD -> Untuk menambahkan barang ke wishlist\n");
+                printf("    15. WISHLIST SWAP -> Untuk menukar barang di wishlist\n");
+                printf("    16. WISHLIST REMOVE -> Untuk menghapus barang dari wishlist\n");
+                printf("    17. WISHLIST CLEAR -> Untuk mengosongkan wishlist\n");
+                printf("    18. WISHLIST SHOW -> Untuk melihat isi wishlist\n");
+                printf("    19. OPTIMASIRUTE -> Untuk mengoptimalkan rute\n");
+                // printf(">> ");
+                // STARTWORD();
+            }
+
+
         }else if (StringCompare(str2Word(Quit), currentWord)) {
             printf("Save atau tidak ? (YES/NO)");
             STARTWORD();
@@ -312,19 +334,22 @@ int main(){
                     cart_remove(&Listuser.A->cart, &barang, Word2int(angka));
                 }
             } else if (StringCompare(str2Word(Pay), currentWord)) {
-                // STARTWORD();
-                // Word input;
-                // input = currentWord;
                 cart_pay(&Listuser.A->cart, &Listuser.A->uang, &Listuser.A->riwayat_pembelian);
             } else if (StringCompare(str2Word(Show), currentWord)) {
                 printCart(Listuser.A->cart);
             }
         } else if (StringCompare(str2Word(History), currentWord)) { 
             ADVWORD();
+            if (currentWord.Length == 0){
+                printf("input tidak valid");
+            } else {
             int n = Word2int(currentWord);
-            // PrintStack(Listuser.A->riwayat_pembelian);
-            // printf()
-            show_history(Listuser.A->riwayat_pembelian, n);
+            show_history(Listuser.A->riwayat_pembelian, n); }
+        }  else if (StringCompare(str2Word("OPTIMASIRUTE"), currentWord)){
+ 
+        } 
+        else if (StringCompare(str2Word(Logout),currentWord)) { 
+            logout();
         } 
         else {
             printf("Perintah tidak valid\n");
