@@ -254,8 +254,7 @@ int main(){
                 // STARTWORD();
             }
 
-
-        }else if (StringCompare(str2Word(Quit), currentWord)) {
+        else if (StringCompare(str2Word(Quit), currentWord)) {
             printf("Save atau tidak ? (YES/NO)");
             STARTWORD();
             if (StringCompare(str2Word("YES"), currentWord)){
@@ -358,4 +357,3 @@ int main(){
     }
     return 0;
 }
-}        
