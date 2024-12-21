@@ -43,7 +43,7 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                 ReadInt(file, &L);
                 ReadInt(file, &X);
                 CartItem endtrans;
-                endtrans.item.name = str2Word("END_TRANSACTION");
+                endtrans.item.name = str2Word("START_TRANSACTION");
                 endtrans.quantity = L;
                 endtrans.total_harga = X;
                 Push(&riwayat_pembelian, endtrans);
@@ -61,6 +61,12 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                     items.total_harga = totalbiaya;
                     Push(&riwayat_pembelian, items);
                 }
+
+                CartItem starttrans;
+                starttrans.item.name = str2Word("END_TRANSACTION");
+                starttrans.quantity = L;
+                starttrans.total_harga = X;
+                Push(&riwayat_pembelian, starttrans);
             }
 
             Linkedlist wishlist;
@@ -81,6 +87,8 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
             User pengguna = CreateUser(usn, pw, uang, riwayat_pembelian, cart, wishlist);
             InsertLastUser(user, pengguna);
         }
+
+        ReverseStack(&user->A->riwayat_pembelian);
         
         fclose(file);
     }

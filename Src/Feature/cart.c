@@ -27,17 +27,19 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
     STARTWORD();
     Word input;
     input = currentWord;
+    ReverseStack(riwayat_pembelian);
 
     if (compareWord(input, str2Word("Ya"))) {
         if (*uang_user >= total) {
 
             *uang_user -= total;
             printf("Selamat kamu telah membeli barang-barang tersebut!\n");
-          
+
+            CartItem separator1 = { .item.name = str2Word("START_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
+            Push(riwayat_pembelian, separator1);
 
             for (int i = 0; i < cart->Count; i++) {
                 CartItem keranjang;
-                printf("test");
                 keranjang.item = cart->Elements[i].Key;
                 keranjang.quantity = cart->Elements[i].Value;
                 keranjang.total_harga = cart->Elements[i].Key.price * cart->Elements[i].Value;
@@ -45,13 +47,15 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
             }
 
  
-            CartItem separator = { .item.name = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
-            Push(riwayat_pembelian, separator);
+            CartItem separator2 = { .item.name = str2Word("END_TRANSACTION"), .quantity = cart->Count, .total_harga = total };
+            Push(riwayat_pembelian, separator2);
 
        
             cart->Count = 0;
 
-        } else {
+        }
+        
+        else {
        
             printf("Transaksi gagal! Saldo kamu hanya %d, sedangkan total harga adalah %d.\n", *uang_user, total);
         }
@@ -59,6 +63,8 @@ void cart_pay(Map *cart, int *uang_user, Stack *riwayat_pembelian) {
     
         printf("Pembelian dibatalkan.\n");
     }
+
+    ReverseStack(riwayat_pembelian);
 }
 
 void cart_add(Map *cart, CurrentBarang *barang, int jumlah){

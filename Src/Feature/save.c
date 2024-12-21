@@ -36,15 +36,17 @@ void writeToFile(FILE *file, ArrayDin *store, List *user) {
                 }
                 Push(&tempStack, brg);
             }
+
+            ReverseStack(&tempStack);
             
             fprintf(file, "%d\n", total_riwayat);
             while (!IsEmptyStack(tempStack)){
                 CartItem hist;
                 Pop(&tempStack, &hist);
-                if (compareWord(hist.item.name, str2Word("END_TRANSACTION"))){
+                if (compareWord(hist.item.name, str2Word("START_TRANSACTION"))){
                     fprintf(file, "%d %d\n", hist.quantity, hist.total_harga);
                 }
-                else{
+                else if (!compareWord(hist.item.name, str2Word("END_TRANSACTION")) && !compareWord(hist.item.name, str2Word("START_TRANSACTION"))){
                     fprintf(file, "%d %d %s\n", hist.total_harga, hist.quantity, Word2str(hist.item.name));
                 }
             }
