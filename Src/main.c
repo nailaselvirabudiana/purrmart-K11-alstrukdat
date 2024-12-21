@@ -33,6 +33,15 @@
 boolean isLoggedIn = false;
 
 
+void clear_screen() {
+    #ifdef _WIN32
+        system("cls"); 
+    #else
+        system("clear"); 
+    #endif
+}
+
+
 int main(){
 
     ArrayDin store = MakeArrayDin();
@@ -95,6 +104,7 @@ int main(){
                 printf(">> ");
                 STARTWORD();
             }else if(StringCompare(str2Word(Quit), currentWord)){
+                clear_screen();
                 return 0;
             }else if(StringCompare(str2Word(Load), currentWord)){
                 STARTWORD();
@@ -125,6 +135,8 @@ int main(){
 
             if (StringCompare(currentWord, str2Word(Register))){
                 registerUser(&Listuser);
+                sleep(1);
+                clear_screen();
             }
             else if (StringCompare(currentWord, str2Word(Login))){
                 int a = 0;
@@ -132,6 +144,8 @@ int main(){
                 if (a == 1){
                     isLoggedIn = true;
                 }
+                sleep(1);
+                clear_screen();
             }
             else if (StringCompare(currentWord, str2Word(Quit))){
                 isLoggedIn = false;
@@ -140,6 +154,7 @@ int main(){
             }
             else {
                 printf("Masukkan perintah yang valid\n");
+                clear_screen();
             }
         }        
 
@@ -171,18 +186,23 @@ int main(){
             printf(">> ");
             STARTWORD();
                 if((StringCompare(str2Word(Work), currentWord))){
+                    clear_screen();
                     if(currentChar == '\n'){
                         Listuser.A->uang += work();
-                        
+                    sleep(3);
+                    clear_screen();
                     }else{
                         ADVWORD();
                         if(StringCompare(str2Word(Challenge), currentWord)){
-                            printf("Daftar challenge ayng tersedia:\n");
+                            clear_screen();
+                            printf("Daftar challenge yang tersedia:\n");
                             printf("1. Tebak Angka (biaya main=200)\n");
                             printf("2. WORDL399 (biaya main=500)\n");
                             printf("3. QuantumWordl3 (biaya main = 1000)\n");
                             printf("\n");
                             printf("Masukkan challenge yang hendak dimainkan: ");
+
+                            STARTWORD();
                             
                             if(StringCompare(str2Word(Tebak), currentWord)){
                                 ADVWORD();
@@ -193,7 +213,9 @@ int main(){
                                         Listuser.A->uang -= 200;
                                         Listuser.A->uang += tebak_angka();
                                     }
+                                    // clear_screen();
                                 }
+                                
                             }
                             if(StringCompare(str2Word(Wordl3), currentWord)){
                                 if(Listuser.A->uang < 500){
@@ -202,6 +224,7 @@ int main(){
                                     Listuser.A->uang -= 500;
                                     Listuser.A->uang += wordl3();
                                 }
+                                // clear_screen();
                                 
                             }
                             if(StringCompare(str2Word(quant), currentWord)){
@@ -211,29 +234,37 @@ int main(){
                                     Listuser.A->uang -= 1000;
                                     Listuser.A->uang += QuantumWordle();
                                 }
+                                // clear_screen();
                             }
                         }
                     } 
                 }else if(StringCompare(str2Word(Store), currentWord)){
+                    clear_screen();
                     ADVWORD();
                     if (StringCompare(str2Word(List), currentWord)) {
                         store_list(store);
+                        // clear_screen();
                         
                     } else if (StringCompare(str2Word(Request), currentWord)) {
                         handle_store_request(&request_queue, store);
+                        // clear_screen();
                         
                     } else if (StringCompare(str2Word(Supply), currentWord)) {
                         handle_store_supply(&store, &request_queue);
+                        // clear_screen();
                         
                     } else if (StringCompare(str2Word(Remove), currentWord)) {
                         handle_store_remove(&store);
+                        // clear_screen();
                         
                     } else {
-                        printf("Command Tidak tersedia, coba lagi\n");\
+                        printf("Command Tidak tersedia, coba lagi\n");
+                        clear_screen();
                     }
                 }
 
                 else if (StringCompare(str2Word(Help), currentWord)) {
+                    clear_screen();
                     printf("=====[ Menu Help PURRMART]=====\n");
                     printf("    1. WORK -> Untuk bekerja\n");
                     printf("    2. WORK CHALLENGE -> Untuk mengerjakan challenge\n");
@@ -254,11 +285,12 @@ int main(){
                     printf("    17. WISHLIST CLEAR -> Untuk mengosongkan wishlist\n");
                     printf("    18. WISHLIST SHOW -> Untuk melihat isi wishlist\n");
                     printf("    19. OPTIMASIRUTE -> Untuk mengoptimalkan rute\n");
-                    // printf(">> ");
-                    // STARTWORD();
+                    sleep(5);
+                    clear_screen();
                 }
 
             else if (StringCompare(str2Word(Quit), currentWord)) {
+                clear_screen();
                 printf("Save atau tidak ? (YES/NO)");
                 STARTWORD();
                 if (StringCompare(str2Word("YES"), currentWord)){
@@ -269,33 +301,49 @@ int main(){
                     file = Word2str(ConcatWord(folder, currentWord));
                     saveFile(file, &store, &Listuser);
                 }
+                clear_screen();
                 return 0;
             }else if(StringCompare(str2Word(Wishlist), currentWord)) {
+                clear_screen();
                 ADVWORD();
                 if(StringCompare(str2Word(Add), currentWord)){
                     WishlistAdd(store, &Listuser.A->wishlist);
+                    clear_screen();
                 }else if(StringCompare(str2Word(Swap), currentWord)){ //kalau ini salah harusnya di spacing
                     ADVWORD();
                     int swap1 = Word2int(currentWord);
                     ADVWORD();
                     int swap2 = Word2int(currentWord);
                     WishlistSwap(&Listuser.A->wishlist, swap1, swap2);
+                    clear_screen();
+                    
                 }else if(StringCompare(str2Word(Remove), currentWord)){
                     if(currentChar == '\n'){
                         WishlistRemove(&Listuser.A->wishlist);
+                        sleep(1);
+                        clear_screen();
                     }else{
                         ADVWORD();
                         int iremove = Word2int(currentWord);
                         WishlistRemovePos(&Listuser.A->wishlist, iremove);
+                        sleep(1);
+                        clear_screen();
                     }
                 }else if(StringCompare(str2Word(Clear), currentWord)){
                     WishlistClear(&Listuser.A->wishlist);
+                    clear_screen();
                 }else if(StringCompare(str2Word(Show), currentWord)){
                     WishlistShow(Listuser.A->wishlist);
+                    sleep(2);
+                    clear_screen();
                 }
             }else if(StringCompare(str2Word(Profile), currentWord)){
+                clear_screen();
                 profile(&Listuser);
+                sleep(2);
+                clear_screen();
             } else if (StringCompare(str2Word(Cart), currentWord)) {
+                clear_screen();
                 ADVWORD();
                 if (StringCompare(str2Word(Add), currentWord)) {
                     ADVWORD();
@@ -321,6 +369,8 @@ int main(){
                         cart_add(&Listuser.A->cart, &barang, Word2int(angka));
 
                     }
+                    sleep(1);
+                    clear_screen();
                 } else if (StringCompare(str2Word(Remove), currentWord)) {
                     ADVWORD();
                     Word stuffName;
@@ -336,23 +386,33 @@ int main(){
                         CurrentBarang barang = store.A[P];
                         cart_remove(&Listuser.A->cart, &barang, Word2int(angka));
                     }
+                    sleep(1);
+                    clear_screen();
                 } else if (StringCompare(str2Word(Pay), currentWord)) {
                     cart_pay(&Listuser.A->cart, &Listuser.A->uang, &Listuser.A->riwayat_pembelian);
+                    sleep(0.5);
+                    clear_screen();
                 } else if (StringCompare(str2Word(Show), currentWord)) {
                     printCart(Listuser.A->cart);
+                    sleep(1);
+                    clear_screen();
                 }
             } else if (StringCompare(str2Word(History), currentWord)) { 
+                clear_screen();
                 ADVWORD();
                 if (currentWord.Length == 0){
                     printf("input tidak valid");
                 } else {
                 int n = Word2int(currentWord);
                 show_history(Listuser.A->riwayat_pembelian, n); }
+                sleep(2);
+                clear_screen();
             }  else if (StringCompare(str2Word("OPTIMASIRUTE"), currentWord)){
     
             } 
             else if (StringCompare(str2Word(Logout),currentWord)) { 
                 logout();
+                sleep(0.5);
             } 
             else {
                 printf("Perintah tidak valid\n");

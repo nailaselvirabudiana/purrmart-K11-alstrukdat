@@ -3,4 +3,7 @@
 
 void wait_for_seconds(int seconds);
 
+void sleep(int seconds);
+
+
 #endif
