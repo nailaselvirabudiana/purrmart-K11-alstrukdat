@@ -147,14 +147,20 @@ int main(){
                 sleep(1);
                 clear_screen();
             }
+            else if (StringCompare(currentWord, str2Word(Logout))){
+                clear_screen();
+                printf("Anda belum login, silakan login terlebih dahulu\n");
+            }
             else if (StringCompare(currentWord, str2Word(Quit))){
                 isLoggedIn = false;
                 printf("Sampai jumpa kembali !");
+                sleep(1);
+                clear_screen();
                 return 0;
             }
             else {
-                printf("Masukkan perintah yang valid\n");
                 clear_screen();
+                printf("Masukkan perintah yang valid\n");
             }
         }        
 
@@ -166,7 +172,7 @@ int main(){
             printf("    3. STORE LIST\n");
             printf("    4. STORE REQUEST\n");
             printf("    5. STORE SUPPLY \n");
-            printf("    6. STORE REMOV\n");
+            printf("    6. STORE REMOVE\n");
             printf("    7. STORE LOGOUT\n");
             printf("    8. PROFILE\n");
             printf("    9. CART ADD\n");
@@ -335,13 +341,11 @@ int main(){
                 }else if(StringCompare(str2Word(Show), currentWord)){
                     WishlistShow(Listuser.A->wishlist);
                     sleep(2);
-                    clear_screen();
                 }
             }else if(StringCompare(str2Word(Profile), currentWord)){
                 clear_screen();
                 profile(&Listuser);
                 sleep(2);
-                clear_screen();
             } else if (StringCompare(str2Word(Cart), currentWord)) {
                 clear_screen();
                 ADVWORD();
@@ -379,23 +383,27 @@ int main(){
                     Word angka;
                     angka = currentWord;
 
-                    IdxType P = SearchNameArrayDin(store, stuffName);
-                    if(P == -1){
-                        printf("Barang tidak ada di keranjang\n");
-                    }else{
-                        CurrentBarang barang = store.A[P];
-                        cart_remove(&Listuser.A->cart, &barang, Word2int(angka));
+                    while(!EOP){
+                        stuffName = ConcatWord(stuffName, str2Word(" "));
+                        stuffName = ConcatWord(stuffName, angka);
+                        // stuffName += " " + lastString;
+                        ADVWORD();
+                        angka = currentWord;
                     }
+
+                    CurrentBarang cart_barang;
+                    cart_barang.name = stuffName;
+                    
+                    cart_remove(&Listuser.A->cart, &cart_barang, Word2int(angka));
                     sleep(1);
-                    clear_screen();
                 } else if (StringCompare(str2Word(Pay), currentWord)) {
                     cart_pay(&Listuser.A->cart, &Listuser.A->uang, &Listuser.A->riwayat_pembelian);
                     sleep(0.5);
                     clear_screen();
                 } else if (StringCompare(str2Word(Show), currentWord)) {
-                    printCart(Listuser.A->cart);
-                    sleep(1);
                     clear_screen();
+                    printCart(Listuser.A->cart);
+                    sleep(0.5);
                 }
             } else if (StringCompare(str2Word(History), currentWord)) { 
                 clear_screen();
@@ -406,15 +414,16 @@ int main(){
                 int n = Word2int(currentWord);
                 show_history(Listuser.A->riwayat_pembelian, n); }
                 sleep(2);
-                clear_screen();
             }  else if (StringCompare(str2Word("OPTIMASIRUTE"), currentWord)){
     
             } 
             else if (StringCompare(str2Word(Logout),currentWord)) { 
+                clear_screen();
                 logout();
                 sleep(0.5);
             } 
             else {
+                clear_screen();
                 printf("Perintah tidak valid\n");
             }
             

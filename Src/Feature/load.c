@@ -74,7 +74,6 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
             
             int J;
             ReadInt(file, &J);
-            printf("%d", J);
 
             for (int b = 0; b < J; b++) {
                 int skipint;
