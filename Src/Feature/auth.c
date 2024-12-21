@@ -28,11 +28,20 @@ void registerUser(List *listuser) {
         return;
     }
 
+    if (username.Length == 0) {
+        printf("username tidak valid");
+        return;
+    }
 
     printf("Password: ");
     STARTINPUT();
     
     Word password = currentWord;
+
+    if (password.Length == 0) {
+        printf("password tidak valid");
+        return;
+    }
     
     User newUser;
     cpStr (newUser.nama, Word2str(username),NMax-1);
@@ -50,6 +59,7 @@ void registerUser(List *listuser) {
     InsertLastUser(listuser, newUser); 
     printf("Akun dengan username '%s' telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", Word2str(username));
 }
+
 
 int login(List *listuser) {
     if (isLoggedIn) {
