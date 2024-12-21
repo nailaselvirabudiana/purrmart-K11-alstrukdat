@@ -41,35 +41,35 @@ void opening() {
 
 void loading_animation(int duration){
     int i = 0;
-    char spin[] = "|/-\\*+x"; // Variasi spinner
+    char spin[] = "|/-\\*+x"; 
     clock_t end_time = clock() + (clock_t)(duration * CLOCKS_PER_SEC);
     double total_ticks = duration * CLOCKS_PER_SEC;
     double elapsed_ticks = 0;
 
     while (clock() < end_time) {
         elapsed_ticks = clock() - (end_time - (clock_t)total_ticks);
-        double progress = elapsed_ticks / total_ticks; // Rasio kemajuan (0 hingga 1)
+        double progress = elapsed_ticks / total_ticks; 
 
         // Membuat progres bar
         int filled_length = (int)(progress * BAR_WIDTH);
         printf("\r["); // Mulai progres bar
         for (int j = 0; j < BAR_WIDTH; j++) {
             if (j < filled_length) {
-                printf("#"); // Bagian selesai
+                printf("#"); 
             } else {
-                printf("-"); // Bagian tersisa
+                printf("-");
             }
         }
-        printf("] %d%% %c", (int)(progress * 100), spin[i]); // Persentase dan spinner
+        printf("] %d%% %c", (int)(progress * 100), spin[i]); 
 
         fflush(stdout);
-        i = (i + 1) % (sizeof(spin) - 1); // Perulangan spinner
+        i = (i + 1) % (sizeof(spin) - 1); 
 
-        // Tunggu hingga interval berikutnya
+
         clock_t target = clock() + (clock_t)INTERVAL;
         while (clock() < target);
     }
-    printf("\r[##############################] 100%% \n"); // Progres selesai
+    printf("\r[##############################] 100%% \n"); 
 }
 
 
