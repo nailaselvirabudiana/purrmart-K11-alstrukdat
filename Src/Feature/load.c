@@ -42,11 +42,11 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                 int L; int X;
                 ReadInt(file, &L);
                 ReadInt(file, &X);
-                CartItem endtrans;
-                endtrans.item.name = str2Word("START_TRANSACTION");
-                endtrans.quantity = L;
-                endtrans.total_harga = X;
-                Push(&riwayat_pembelian, endtrans);
+                CartItem starttrans;
+                starttrans.item.name = str2Word("START_TRANSACTION");
+                starttrans.quantity = L;
+                starttrans.total_harga = X;
+                Push(&riwayat_pembelian, starttrans);
 
                 for (int c = 0; c < L; c++){
                     int totalbiaya;
@@ -62,11 +62,11 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                     Push(&riwayat_pembelian, items);
                 }
 
-                CartItem starttrans;
-                starttrans.item.name = str2Word("END_TRANSACTION");
-                starttrans.quantity = L;
-                starttrans.total_harga = X;
-                Push(&riwayat_pembelian, starttrans);
+                CartItem endtrans;
+                endtrans.item.name = str2Word("END_TRANSACTION");
+                endtrans.quantity = L;
+                endtrans.total_harga = X;
+                Push(&riwayat_pembelian, endtrans);
             }
 
             Linkedlist wishlist;
