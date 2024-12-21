@@ -98,3 +98,23 @@ void ReverseStack(Stack *S)
     
     *S = temp;
 }
+
+void PrintStackWithoutTag(Stack S) {
+    if (IsEmptyStack(S)) {
+        printf("Riwayat kosong.\n");
+        return;
+    }
+
+    printf("Isi riwayat:\n");
+    int index = 1;
+
+
+    for (int i = S.TOP; i >= 0; i--) {
+       
+        if (!compareWord(S.items[i].item.name, str2Word("START_TRANSACTION")) &&
+            !compareWord(S.items[i].item.name, str2Word("END_TRANSACTION"))) {
+            printf("%d. %s %d %d\n", index, Word2str(S.items[i].item.name), S.items[i].quantity, S.items[i].total_harga);
+            index++;
+        }
+    }
+}

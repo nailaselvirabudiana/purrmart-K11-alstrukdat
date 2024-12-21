@@ -73,5 +73,7 @@ int LengthStack (Stack S);
 
 void ReverseStack(Stack *S);
 
+void PrintStackWithoutTag(Stack S);
+
 
 #endif

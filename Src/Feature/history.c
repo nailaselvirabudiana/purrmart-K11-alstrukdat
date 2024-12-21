@@ -14,8 +14,7 @@ void show_history(Stack riwayat_pembelian, int n) {
     int start_idx = riwayat_pembelian.TOP;
     int end_idx = riwayat_pembelian.TOP;
 
-    // ReverseStack(&riwayat_pembelian); // Membalik stack untuk membaca dari urutan terlama
-    PrintStack(riwayat_pembelian);   // Fungsi opsional untuk debugging, bisa dihapus jika tidak diperlukan
+    // PrintStack(riwayat_pembelian);   // Fungsi opsional untuk debugging, bisa dihapus jika tidak diperlukan
 
     // Iterasi untuk memproses setiap transaksi
     while (transactions < n && start_idx >= 0) {

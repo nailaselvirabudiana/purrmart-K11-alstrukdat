@@ -7,7 +7,7 @@ void profile(List *listuser){
     if (isLoggedIn){
         printf("Username: %s\n", listuser->A->nama);
         printf("Uang: %d\n", listuser->A->uang);
-        PrintStack(listuser->A->riwayat_pembelian);
+        PrintStackWithoutTag(listuser->A->riwayat_pembelian);
         printf("Cart: \n");
         PrintMap(listuser->A->cart);
         printf("Wishlist: \n");

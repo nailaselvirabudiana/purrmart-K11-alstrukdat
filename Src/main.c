@@ -102,8 +102,10 @@ int main(){
                 return 0;
             }else if(StringCompare(str2Word(Load), currentWord)){
                 STARTWORD();
-                char* file;
-                file = Word2str(currentWord);
+                char* file; Word folder; Word filename;
+                folder = str2Word("save/");
+                filename = currentWord;
+                file = Word2str(ConcatWord(folder, currentWord));
                 loadFile(file,&store,&Listuser);
                 masuk = true;
                 break;
@@ -236,8 +238,11 @@ int main(){
             STARTWORD();
             if (StringCompare(str2Word("YES"), currentWord)){
                 STARTWORD();
-                char* filename = Word2str(currentWord);
-                saveFile(filename, &store, &Listuser );
+                char* file; Word folder; Word filename;
+                folder = str2Word("save/");
+                filename = currentWord;
+                file = Word2str(ConcatWord(folder, currentWord));
+                saveFile(file, &store, &Listuser);
             }
             return 0;
         }else if(StringCompare(str2Word(Wishlist), currentWord)) {
