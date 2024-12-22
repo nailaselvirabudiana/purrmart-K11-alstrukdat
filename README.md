@@ -36,12 +36,18 @@ TEBAK ANGKA<br />
 SAVE
 
 # How to Run
-- Pada terminal, pastikan current directory ada pada folder src
-- Compile program menggunakan
+- Run file dengan linux environment/mysys2 terminal :
 ```
-gcc -o data main.c Feature/work.c Feature/wordl3.c Feature/tebak_angka.c ADT/random/random.c ADT/mesinkarakter/mesinkarakter.c ADT/mesinkata/mesinkata.c ADT/delay/delay.c Feature/auth.c Feature/save.c Feature/load.c Feature/user.c ADT/list/list.c ADT/queue/queue.c ADT/store/store.c ADT/barang/barang.c ADT/list_dinamis/list_dinamis.c Feature/quantumwordl3.c
+make -C bin
 ```
+- Run file menggunakan powershell
+```
+gcc -o data Src/main.c Src/Feature/work.c Src/Feature/wordl3.c Src/Feature/tebak_angka.c Src/ADT/random/random.c Src/ADT/mesinkarakter/mesinkarakter.c Src/ADT/mesinkata/mesinkata.c Src/ADT/delay/delay.c Src/Feature/auth.c Src/Feature/save.c Src/Feature/load.c Src/Feature/user.c Src/ADT/list/list.c Src/ADT/queue/queue.c Src/ADT/store/store.c Src/ADT/barang/barang.c Src/ADT/list_dinamis/list_dinamis.c Src/Feature/quantumwordl3.c Src/Feature/cart.c Src/Feature/history.c Src/Feature/profile.c Src/ADT/stack/stack.c Src/ADT/setmap/map.c Src/Feature/wishlist.c Src/ADT/linkedlist/linkedlist.c Src/Feature/hiasan.c Src/Feature/graph.c
+
+```
+
 - Jalankan program yang telah dicompile menggunakan
 ```
 ./data
 ```
+
