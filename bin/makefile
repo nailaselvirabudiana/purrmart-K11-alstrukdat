@@ -1,5 +1,5 @@
 # Compiler and Flags
-CC = gcc
+CC = x86_64-w64-mingw32-gcc
 CFLAGS = -I ../Src -Wall -Wextra -std=c99
 
 # Source and Build Directories
@@ -16,7 +16,7 @@ SRC_FILES = $(FEATURE_SRC) $(ADT_SRC) $(MAIN_SRC)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 # Output Binary
-TARGET = $(BUILD_DIR)/program
+TARGET = $(BUILD_DIR)/program.exe
 
 # Rules
 .PHONY: all clean
@@ -26,7 +26,7 @@ all: $(TARGET)
 $(TARGET): $(OBJ_FILES)
 	@echo "Linking..."
 	$(CC) $(OBJ_FILES) -o $(TARGET)
-	@echo "Build complete! Executable is located in $(TARGET)"
+	@echo "Build complete! Executable is located at $(TARGET)"
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
