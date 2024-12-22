@@ -62,6 +62,10 @@ gcc -o data Src/main.c Src/Feature/work.c Src/Feature/wordl3.c Src/Feature/tebak
 
 - Jalankan program yang telah dicompile menggunakan
 ```
-./data
+./Bin/program (Untuk Windows Environtement)
 ```
+```
+./Bin/program.exe (Untuk Linux Environtement)
+```
+
 
