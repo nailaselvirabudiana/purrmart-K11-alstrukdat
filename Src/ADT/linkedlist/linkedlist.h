@@ -56,7 +56,7 @@ void DelP (Linkedlist *L, Infotype X);
 
 void PrintInfo (Linkedlist L);
 
-int NbElmt (Linkedlist L);
+int NbElmt2 (Linkedlist L);
 
 // void InversLinkedlist (Linkedlist *L);
 

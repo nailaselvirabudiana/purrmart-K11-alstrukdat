@@ -5,7 +5,7 @@
 #include "../array/array.h"
 #include "../boolean.h"
 
-extern boolean isLoggedIn;
+extern boolean isLoggedInUser;
 extern Word loggedInUser;
 
 #endif
