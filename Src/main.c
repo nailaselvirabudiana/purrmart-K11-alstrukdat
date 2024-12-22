@@ -15,6 +15,7 @@
 #include "Feature/history.h"
 #include "Feature/profile.h"
 #include "Feature/hiasan.h"
+#include "Feature/graph.h"
 
 
 
@@ -415,7 +416,9 @@ int main(){
                 show_history(Listuser.A->riwayat_pembelian, n); }
                 sleep(2);
             }  else if (StringCompare(str2Word("OPTIMASIRUTE"), currentWord)){
-    
+                clear_screen();
+                OptimasiRute();
+                sleep(2);
             } 
             else if (StringCompare(str2Word(Logout),currentWord)) { 
                 clear_screen();

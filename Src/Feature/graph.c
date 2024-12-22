@@ -65,7 +65,7 @@ int isDuplicateEdge(int u, int v) {
     return graph[u][v] != INF; // Jika sudah ada jalur, kembalikan true
 }
 
-void DFS() {
+void OptimasiRute() {
     int edges, i, u, v, w;
 
     printf("Masukkan jumlah lokasi pengiriman (node): ");

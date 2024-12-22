@@ -1,8 +1,8 @@
 #ifndef graph_H
 #define graph_H
-# include "../mesinkarakter/mesinkarakter.h"
-# include "../mesinkata/mesinkata.h"
-# include "../boolean.h"
+# include "../ADT/mesinkarakter/mesinkarakter.h"
+# include "../ADT/mesinkata/mesinkata.h"
+# include "../ADT/boolean.h"
 
 #define MAX 10
 #define INF 99999 // Representasi jarak tak hingga
@@ -17,6 +17,6 @@ int isDuplicateEdge(int u, int v);
 
 
 
-void DFS();
+void OptimasiRute();
 
 #endif
