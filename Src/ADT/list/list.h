@@ -11,7 +11,7 @@
 typedef int IdxType;
 typedef struct {
     User A[MaxElUser];  // Array penyimpan elemen bertipe User
-    int Neff;       // Banyaknya elemen efektif
+    int Neff;       
 } List;
 
 // Fungsi dan prosedur terkait List

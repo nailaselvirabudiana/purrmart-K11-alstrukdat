@@ -21,30 +21,6 @@ boolean IsFullStack(Stack S) {
     return S.TOP == MaxEl - 1;
 }
 
-// void Push(Stack *S, CartItem X) {
-//     if (!IsFullStack(*S)) {
-//         S->TOP++;
-//         S->items[S->TOP] = X;
-//     } else {
-//         printf("Stack penuh. Tidak bisa menambahkan item.\n");
-//     }
-// }
-
-// void Push(Stack *S, CartItem X) {
-
-//     for (int i = 0; i<= S->TOP; i++) {
-//         if (compareWord(S->items[i].item.name, X.item.name)) {
-//             S->items[i].quantity += X.quantity;
-//             return;
-//         }
-//     }
-//     if (!IsFullStack(*S)) {
-//         S->TOP++;
-//         S->items[S->TOP] = X;
-//     } else {
-//         printf("Stack penuh. Tidak bisa menambahkan item.\n");
-//     }
-// }
 
 void Push(Stack *S, CartItem X) {
     // Periksa apakah stack penuh
