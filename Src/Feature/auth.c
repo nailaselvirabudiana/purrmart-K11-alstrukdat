@@ -63,7 +63,7 @@ void registerUser(List *listuser) {
 
 int login(List *listuser) {
     if (isLoggedIn) {
-        printf("Anda masih tercatat sebagai %s. Silakan LOGOUT terlebih dahulu.\n", LoggedInUser);
+        printf("Anda masih tercatat sebagai %s. Silakan LOGOUT terlebih dahulu.\n", LoggedInUser.nama);
         return 0;
     }
     printf("Username: ");
