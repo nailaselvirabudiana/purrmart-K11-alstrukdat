@@ -28,4 +28,5 @@ void store_supply(ArrayDin *store, Queue *request_queue, Word command, int price
 // Fungsi untuk menghapus item dari toko
 void store_remove(ArrayDin *store, Word item_name);
 
+CurrentBarang cariBarang(ArrayDin store, Word item_name);
 #endif

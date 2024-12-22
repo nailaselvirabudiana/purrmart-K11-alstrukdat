@@ -13,7 +13,7 @@ void MakeEmpty (TabKata *T)
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (TabKata T) {
+int NbElmt2 (TabKata T) {
     return T.Neff;
 };
 /* Mengirimkan banyaknya elemen efektif tabel */

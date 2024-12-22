@@ -93,6 +93,15 @@ IdxType SearchArrayDin(ArrayDin array, ArrayElType item) {
     return -1; 
 }
 
+IdxType SearchNameArrayDin(ArrayDin array, Word item) {
+    for (IdxType i = 0; i < array.Neff; i++) {
+        if (compareWord(array.A[i].name, item)) {
+            return i;
+        }
+    }
+    return -1; 
+}
+
 void PrintArrayDin(ArrayDin array) {
     printf("[");
     for (int i = 0; i < array.Neff; i++) {

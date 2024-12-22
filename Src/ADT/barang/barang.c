@@ -20,4 +20,3 @@ boolean isInfoBarangEmpty(CurrentBarang B) {
 boolean isInfoBarangEqual(CurrentBarang B1, CurrentBarang B2) {
     return StringCompare(B1.name, B2.name);
 }
-

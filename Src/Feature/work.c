@@ -23,7 +23,17 @@ int work(){
     char Mewing[] = "Mewing", Specialist[] = "Specialist";
     char Inator[] = "Inator", Connoisseur[] = "Connoisseur";
 
-    if(StringCompare(str2Word(Evil), currentWord)){
+    if(Word2int(currentWord) == 1){
+        Case = 1;
+    }else if(Word2int(currentWord) == 2){
+        Case = 2;
+    }else if(Word2int(currentWord) == 3){
+        Case = 3;
+    }else if(Word2int(currentWord) == 4){
+        Case = 4;
+    }else if(Word2int(currentWord) == 5){
+        Case = 5;
+    }else if(StringCompare(str2Word(Evil), currentWord)){
         ADVWORD();
         if(StringCompare(str2Word(Lab), currentWord)){
             ADVWORD();
@@ -54,37 +64,40 @@ int work(){
         if(StringCompare(str2Word(Connoisseur), currentWord)){
             Case = 5;
         }
+    }else{
+        printf("Input invalid!\n");
+        return 0;
     }
     
     switch(Case){
     case 1:
         printf("Anda sedang bekerja sebagai Evil Lab Assistant... harap tunggu.\n");
         wait_for_seconds(14);
-        printf("Pekerjaan selesai, +100 rupiah telah ditambahkan ke akun anda.");
+        printf("Pekerjaan selesai, +100 rupiah telah ditambahkan ke akun anda.\n");
         return 100;
         break;    
     case 2:
         printf("Anda sedang bekerja sebagai OWCA Hiring Manager... harap tunggu.\n");
         wait_for_seconds(21);
-        printf("Pekerjaan selesai, +4200 rupiah telah ditambahkan ke akun anda.");
+        printf("Pekerjaan selesai, +4200 rupiah telah ditambahkan ke akun anda.\n");
         return 4200;
         break;    
     case 3:
         printf("Anda sedang bekerja sebagai Cikapundunginator Caretaker... harap tunggu.\n");
         wait_for_seconds(30);
-        printf("Pekerjaan selesai, +7000 rupiah telah ditambahkan ke akun anda.");
+        printf("Pekerjaan selesai, +7000 rupiah telah ditambahkan ke akun anda.\n");
         return 7000;
         break;    
     case 4:
         printf("Anda sedang bekerja sebagai Mewing Specialist... harap tunggu.\n");
         wait_for_seconds(22);
-        printf("Pekerjaan selesai, +10000 rupiah telah ditambahkan ke akun anda.");
+        printf("Pekerjaan selesai, +10000 rupiah telah ditambahkan ke akun anda.\n");
         return 10000;
         break;    
     case 5:
         printf("Anda sedang bekerja sebagai Inator Connoisseur... harap tunggu.\n");
         wait_for_seconds(15);
-        printf("Pekerjaan selesai, +997 rupiah telah ditambahkan ke akun anda.");
+        printf("Pekerjaan selesai, +997 rupiah telah ditambahkan ke akun anda.\n");
         return 997;
         break;    
     }

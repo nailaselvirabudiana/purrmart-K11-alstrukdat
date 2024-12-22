@@ -1,4 +1,4 @@
 #include "userauth.h"
 
-boolean isLoggedIn = false;
+boolean isLoggedInUser = false;
 Word loggedInUser;

@@ -1,4 +1,5 @@
 #include "list.h"
+
 #include <stdio.h>
 
 List MakeListUser() {
@@ -52,3 +53,4 @@ void DisplayListUser(List L) {
         }
     }
 }
+

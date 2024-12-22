@@ -1,7 +1,7 @@
 #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
-#include "user.h"
+#include "../Feature/user.h"
 #include "../ADT/mesinkata/mesinkata.h"
 
 
@@ -9,11 +9,14 @@
 // #include <string.h>
 // #include <stdio.h>
 
-User CreateUser(char *nama, char *password, int uang) {
+User CreateUser(char *nama, char *password, int uang, Stack riwayat_pembelian, Map cart, Linkedlist wishlist) {
     User user;
     cpStr(user.nama, nama, NMax - 1);
     cpStr(user.password, password, NMax - 1);
     user.uang = uang;
+    user.riwayat_pembelian = riwayat_pembelian;
+    user.cart = cart;
+    user.wishlist = wishlist;
     return user;
 }
 

@@ -41,7 +41,7 @@ void MakeEmpty (TabKata *T);
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (TabKata T);
+int NbElmt2 (TabKata T);
 /* Mengirimkan banyaknya elemen efektif tabel */
 /* Mengirimkan nol jika tabel kosong */
 /* *** Daya tampung container *** */
