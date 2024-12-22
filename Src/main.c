@@ -153,6 +153,19 @@ int main(){
                 logout();
             }
             else if (StringCompare(currentWord, str2Word(Quit))){
+                clear_screen();
+                printf("Save atau tidak ? (YES/NO)");
+                STARTWORD();
+                if (StringCompare(str2Word("YES"), currentWord)){
+                    STARTWORD();
+                    char* file; Word folder; Word filename;
+                    folder = str2Word("save/");
+                    filename = currentWord;
+                    file = Word2str(ConcatWord(folder, currentWord));
+
+                    saveFile(file, &store, &Listuser);
+                }
+                
                 isLoggedIn = false;
                 printf("Sampai jumpa kembali !");
                 sleep(1);
@@ -306,6 +319,15 @@ int main(){
                     folder = str2Word("save/");
                     filename = currentWord;
                     file = Word2str(ConcatWord(folder, currentWord));
+
+                    for (int x = 0; x < LengthUser(Listuser); x++){
+                        if (compareString(Listuser.A[x].nama, LoggedInUser.nama)){
+                            Listuser.A[x].cart = LoggedInUser.cart;
+                            Listuser.A[x].riwayat_pembelian = LoggedInUser.riwayat_pembelian;
+                            Listuser.A[x].wishlist = LoggedInUser.wishlist;
+                        }
+                    }
+
                     saveFile(file, &store, &Listuser);
                 }
                 clear_screen();
@@ -422,6 +444,15 @@ int main(){
             } 
             else if (StringCompare(str2Word(Logout),currentWord)) { 
                 clear_screen();
+
+                for (int x = 0; x < LengthUser(Listuser); x++){
+                        if (compareString(Listuser.A[x].nama, LoggedInUser.nama)){
+                            Listuser.A[x].cart = LoggedInUser.cart;
+                            Listuser.A[x].riwayat_pembelian = LoggedInUser.riwayat_pembelian;
+                            Listuser.A[x].wishlist = LoggedInUser.wishlist;
+                        }
+                    }
+
                 logout();
                 sleep(0.5);
             } 

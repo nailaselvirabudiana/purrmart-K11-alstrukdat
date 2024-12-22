@@ -1,0 +1,27 @@
+6
+10 Ayam Goreng
+20 Puding Lele
+47 AK47
+14 M14
+10 Meong
+200 Lalabu
+2
+1000 user1 alstrukdet
+2
+2 30
+20 2 Meong
+10 1 Ayam Goreng
+1 200
+200 1 Lalabu
+1
+AK47
+2000 DER 123
+2
+2 61
+47 1 AK47
+14 1 M14
+1 20
+20 1 Puding Lele
+2
+Puding Lele
+Meong
