@@ -69,6 +69,8 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
                 Push(&riwayat_pembelian, endtrans);
             }
 
+            ReverseStack(&riwayat_pembelian);
+
             Linkedlist wishlist;
             CreateEmpty(&wishlist);
             
@@ -86,8 +88,6 @@ void loadFile(const char *filename, ArrayDin *store, List *user){
             User pengguna = CreateUser(usn, pw, uang, riwayat_pembelian, cart, wishlist);
             InsertLastUser(user, pengguna);
         }
-
-        ReverseStack(&user->A->riwayat_pembelian);
         
         fclose(file);
     }
