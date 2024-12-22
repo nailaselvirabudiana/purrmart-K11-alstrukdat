@@ -172,7 +172,7 @@ void PrintInfo(Linkedlist L) {
     printf("]\n");
 }
 
-int NbElmt2(Linkedlist L) {
+int NbElmt(Linkedlist L) {
     int count = 0;
     Address P = First(L);
     while (P != Nil) {
