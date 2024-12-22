@@ -325,6 +325,7 @@ int main(){
                             Listuser.A[x].cart = LoggedInUser.cart;
                             Listuser.A[x].riwayat_pembelian = LoggedInUser.riwayat_pembelian;
                             Listuser.A[x].wishlist = LoggedInUser.wishlist;
+                            Listuser.A[x].uang = LoggedInUser.uang;
                         }
                     }
 
@@ -367,7 +368,7 @@ int main(){
                 }
             }else if(StringCompare(str2Word(Profile), currentWord)){
                 clear_screen();
-                profile(LoggedInUser);
+                profile(LoggedInUser, Listuser);
                 sleep(2);
             } else if (StringCompare(str2Word(Cart), currentWord)) {
                 clear_screen();
@@ -450,6 +451,7 @@ int main(){
                             Listuser.A[x].cart = LoggedInUser.cart;
                             Listuser.A[x].riwayat_pembelian = LoggedInUser.riwayat_pembelian;
                             Listuser.A[x].wishlist = LoggedInUser.wishlist;
+                            Listuser.A[x].uang = LoggedInUser.uang;
                         }
                     }
 
