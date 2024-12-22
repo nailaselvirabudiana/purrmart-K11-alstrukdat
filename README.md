@@ -22,18 +22,32 @@ mesinkata<br />
 queue<br />
 random<br />
 store<br />
-boolean
+boolean<br />
+stack<br />
+map<br />
 
 # Features
 LOAD<br />
 REGISTER<br />
 LOGIN<br />
 LOGOUT<br />
+PROFILE<br />
 WORK<br />
 WORDL3<br />
 QUANTUM WORDL3<br />
 TEBAK ANGKA<br />
-SAVE
+CART ADD<br />
+CART REMOVE<br />
+CART PAY<br />
+CART SHOW<br />
+HISTORY<br />
+WISHLIST ADD<br />
+WISHLIST REMOVE<br />
+WISHLIST SWAP<br />
+WISHLIST CLEAR<br />
+WISHLIST SHOW<br />
+OPTIMASIRUTE<br />
+SAVE<br />
 
 # How to Run
 - Run file dengan linux environment/mysys2 terminal :
